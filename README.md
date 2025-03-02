@@ -41,3 +41,5 @@ Injuries have to be tracked. Injury types include:
 - Adrenlized
 
 ## Abilities
+
+I want to have a selection of abilities I can check.
