@@ -42,4 +42,16 @@ Injuries have to be tracked. Injury types include:
 
 ## Abilities
 
-I want to have a selection of abilities I can check.
+I want to have a selection of abilities I can check, or click to display in chat.
+
+
+## Examples of the commands
+
+/me Rolls a Drive roll
+/roll 1d4
+
+## Resources
+
+https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world
+
+https://www.freecodecamp.org/news/building-chrome-extension/
