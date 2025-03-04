@@ -1,9 +1,10 @@
+/* Tablist styles */
 body {
   font-family: "lucida grande", sans-serif;
 }
 
 [role="tablist"] {
-  min-width: 100%;
+  min-width: 98%;
 }
 
 [role="tab"],
@@ -64,6 +65,7 @@ body {
   min-height: 10em;
   width: 100%;
   overflow: auto;
+  max-width: 98%;
 }
 
 [role="tabpanel"].is-hidden {
@@ -72,4 +74,22 @@ body {
 
 [role="tabpanel"] p {
   margin: 0;
+}
+
+/* Skills Styles */
+#skillRollers {
+  display: flex;
+  flex-wrap:wrap;
+}
+
+#skillRollers section {
+  margin: 0px 10px 10px 10px;
+  padding: 0px 10px 5px 10px;
+  border: double #bd6800d9 4px;
+  border-radius: 10px;
+}
+
+/* Footer Styles */
+footer p {
+  text-align: center;
 }

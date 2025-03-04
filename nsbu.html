@@ -30,9 +30,8 @@
             </div>
             
             <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
-              <div>
                 <h2>Skills</h2>
-                <div id="col1">
+                <div id="skillRollers">
                     <section id="stuntSection" class="skillSection">
                         <h3>Stunts</h3>
                         <form id="stunt-form">
@@ -51,7 +50,7 @@
                     </section>
                     <section id="brawlSection" class="skillSection">
                         <h3>Brawl</h3>
-                        <form>
+                        <form id="brawl-form">
                             <select aria-label="Brawl Die Value" name="brawlDie" id="brawl-die">
                                 <option value="">--Set Brawl Die Value--</option>
                                 <option value="4">d4</option>
@@ -67,7 +66,7 @@
                     </section>
                     <section id="toughSection" class="skillSection">
                         <h3>Tough</h3>
-                        <form>
+                        <form id="tough-form">
                             <select aria-label="Tough Die Value" name="toughDie" id="tough-die">
                                 <option value="">--Set Tough Die Value--</option>
                                 <option value="4">d4</option>
@@ -83,7 +82,7 @@
                     </section>
                     <section id="techSection" class="skillSection">
                         <h3>Tech</h3>
-                        <form>
+                        <form id="tech-form">
                             <select aria-label="Tech Die Value" name="tech-die" id="tech-die">
                                 <option value="">--Set Tech Die Value--</option>
                                 <option value="4">d4</option>
@@ -99,7 +98,7 @@
                     </section>
                     <section id="weaponsSection" class="skillSection">
                         <h3>Weapons</h3>
-                        <form>
+                        <form id="weapons-form">
                             <select aria-label="Weapons Die Value" name="weapons-die" id="weapons-die">
                                 <option value="">--Set Weapons Die Value--</option>
                                 <option value="4">d4</option>
@@ -113,11 +112,9 @@
                             <input type="button" value="Roll Weapons" id="rollDie()" >
                         </form>
                     </section>
-                </div>
-                <div id="col2">
                     <section id="driveSection" class="skillSection">
                         <h3>Drive</h3>
-                        <form>
+                        <form id="drive-form">
                             <select aria-label="Drive Die Value" name="drive-die" id="drive-die">
                                 <option value="">--Set Drive Die Value--</option>
                                 <option value="4">d4</option>
@@ -133,7 +130,7 @@
                     </section>
                     <section id="sneakSection" class="skillSection">
                         <h3>Sneak</h3>
-                        <form>
+                        <form id="sneak-form">
                             <select aria-label="Sneak Die Value" name="sneak-die" id="sneak-die">
                                 <option value="">--Set Sneak Die Value--</option>
                                 <option value="4">d4</option>
@@ -149,7 +146,7 @@
                     </section>
                     <section id="witsSection" class="skillSection">
                         <h3>Wits</h3>
-                        <form>
+                        <form id="wits-form">
                             <select aria-label="Wits Die Value" name="wits-die" id="wits-die">
                                 <option value="">--Set Wits Die Value--</option>
                                 <option value="4">d4</option>
@@ -165,7 +162,7 @@
                     </section>
                     <section id="hotSection" class="skillSection">
                         <h3>Hot</h3>
-                        <form>
+                        <form id="hot-form">
                             <select aria-label="Hot Die Value" name="hot-die" id="hot-die">
                                 <option value="">--Set Hot Die Value--</option>
                                 <option value="4">d4</option>
@@ -180,7 +177,6 @@
                         </form>
                     </section>
                 </div>
-              </div>
             </div>
             <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
               <div>
@@ -630,7 +626,7 @@
             </div>
         </div>
         <footer>
-            <p>The NSBU system was written by Brennan Lee Mulligan & Carlos Luna. Design & Layout by Ruby Lavin. With special thanks to The Intrepid Heroes & Hunters Entertainment.</p>
+            <p>The NSBU system was written by Brennan Lee Mulligan & Carlos Luna.<br>Design & Layout by Ruby Lavin.<br>With special thanks to The Intrepid Heroes & Hunters Entertainment.</p>
         </footer>
         <script src="scripts/tabs.js"></script>
         <script src="scripts/skills.js"></script>
