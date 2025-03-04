@@ -1,19 +1,12 @@
 /* General Styling */
 
+
 /* Skills Styles */
-#skillRollers {
-    display: flex;
-    flex-wrap:wrap;
-  }
   
-  #skillRollers section {
-    margin: 0px 10px 10px 10px;
-    padding: 0px 10px 5px 10px;
+#skillRollers section {
     border: double #bd6800d9 4px;
-    border-radius: 10px;
-  }
+}
+
+/* Ability Table */
   
-  /* Footer Styles */
-  footer p {
-    text-align: center;
-  }
+/* Footer Styles */
