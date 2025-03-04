@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>NSBU Tracker</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles/main.css">
+    </head>
+    <body>
+        <!-- Tabs for skills and abilities -->
+        <div class="tabs">
+            <h1 id="tablist-1">Never Stop Blowing Up (NSBU) Tracker</h1>
+            <div role="tablist" aria-labelledby="tablist-1" class="manual">
+              <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
+                <span class="focus">Skills</span>
+              </button>
+              <button id="tab-2" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" tabindex="-1">
+                <span class="focus">Abilities</span>
+              </button>
+              
+            <button id="tab-3" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-3" tabindex="-1">
+                <span class="focus">Injuries</span>
+            </button>
+                <button id="tab-4" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-4" tabindex="-1">
+                    <span class="focus">Settings</span>
+                </button>
+            </div>
+          
+            <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+              <div>
+                <h2>Skills</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skill Name</th>
+                            <th>Die Value</th>
+                            <th>Roll Skill</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td id="stuntDie">Stunts</td>
+                            <td>
+                                <select aria-label="Stunt Die Value" name="stunt-die" id="stunt-die">
+                                    <option value="">--Set Stunt Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Stunt" id="rollDie()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Brawl</td>
+                            <td>
+                                <select aria-label="Brawl Die Value" name="brawl-die" id="brawl-die">
+                                    <option value="">--Set Brawl Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Brawl" id="rollDie()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tough</td>
+                            <td>
+                                <select aria-label="Tough Die Value" name="tough-die" id="tough-die">
+                                    <option value="">--Set Tough Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Tough" id="rollDie()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tech</td>
+                            <td>
+                                <select aria-label="Tech Die Value" name="tech-die" id="tech-die">
+                                    <option value="">--Set Tech Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Tech" id="rollDie()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Weapons</td>
+                            <td>
+                                <select aria-label="Weapons Die Value" name="weapons-die" id="weapons-die">
+                                    <option value="">--Set Weapons Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Weapons" id="rollDie()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Drive</td>
+                            <td>
+                                <select aria-label="Drive Die Value" name="drive-die" id="drive-die">
+                                    <option value="">--Set Drive Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Drive" id="rollDie()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sneak</td>
+                            <td>
+                                <select aria-label="Sneak Die Value" name="sneak-die" id="sneak-die">
+                                    <option value="">--Set Sneak Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Sneak" id="rollDie()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Wits</td>
+                            <td>
+                                <select aria-label="Wits Die Value" name="wits-die" id="wits-die">
+                                    <option value="">--Set Wits Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Wits" id="rollDie()" >
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hot</td>
+                            <td>
+                                <select aria-label="Hot Die Value" name="hot-die" id="hot-die">
+                                    <option value="">--Set Hot Die Value--</option>
+                                    <option value="4">d4</option>
+                                    <option value="6">d6</option>
+                                    <option value="8">d8</option>
+                                    <option value="10">d10</option>
+                                    <option value="12">d12</option>
+                                    <option value="20">d20</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="button" value="Roll Hot" id="rollDie()" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+            <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
+              <div>
+                <h2>Abilities</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ability Name</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+              </div>
+            </div>
+            <div id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3" class="is-hidden">
+                <div>
+                    <h2>Injuries</h2>
+                    <p>The following options are used to set the number of various injury types your character has.</p>
+                    <ul>
+                        <li>
+                            <label for="superficialInjury">Superficial:</label>
+                            <select name="superficial-select" id="superficialInjury">
+                              <option value="">--Set the Superficial injury count--</option>
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="severeInjury">Severe:</label>
+                            <select name="severe-select" id="severeInjury">
+                              <option value="">--Set the Severe injury count--</option>
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                        </li>
+                        <li>
+                            <label for="adrenlizedInjury">Adrenlized:</label>
+                            <select name="adrenlized-select" id="adrenlizedInjury">
+                              <option value="">--Set the Adrenlized injury count--</option>
+                              <option value="0">0</option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="tabpanel-4" role="tabpanel" aria-labelledby="tab-4" class="is-hidden">
+                <div>
+                    <h2>Settings</h2>
+                    <p></p>
+                </div>
+            </div>
+          </div>
+        <script src="scripts/tabs.js"></script>
+    </body>
+</html>
