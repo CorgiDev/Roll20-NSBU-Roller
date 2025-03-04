@@ -11,9 +11,22 @@
 }
 
 table, td, th {
-    border: 1px solid #bd6800d9;
+    border: 1px solid #ff8c00d9;
 }
 
 /* Ability Table */
   
 /* Footer Styles */
+
+/* Tablist darkmode */
+[role="tab"][aria-selected="true"] {
+    border-bottom-color: white;
+    background: black;
+}
+
+[role="tab"],
+[role="tab"]:focus,
+[role="tab"]:hover,
+[role="tabpanel"] {
+  background: black;
+}
