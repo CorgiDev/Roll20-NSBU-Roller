@@ -1,10 +1,17 @@
 /* General Styling */
-
+* {
+    background: black;
+    color: white
+}
 
 /* Skills Styles */
   
 #skillRollers section {
-    border: double #bd6800d9 4px;
+    border: double #ff8c00d9 4px;
+}
+
+table, td, th {
+    border: 1px solid #bd6800d9;
 }
 
 /* Ability Table */

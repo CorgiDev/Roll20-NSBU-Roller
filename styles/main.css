@@ -1,4 +1,8 @@
 /* General Styling */
+body {
+    color: #563001d9;
+}
+
 label {
     font-weight:bold;
 }
