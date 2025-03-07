@@ -14,6 +14,11 @@ table, td, th {
     border: 1px solid #00ff26;
 }
 
+[type="button"] {
+    background: #00ff26;
+    color: black;
+}
+
 /* Tabpanel Formatting */
 [role="tabpanel"] {
     border: 2px solid #00ff26;
