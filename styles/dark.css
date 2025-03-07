@@ -28,7 +28,7 @@ table, td, th {
 [role="tab"]:hover span.focus,
 [role="tab"]:focus span.focus,
 [role="tab"]:active span.focus {
-  border: 2px solid rgb(183, 255, 0);
+  border: 2px solid #b7ff00;
 }
 
 [role="tab"][aria-selected="false"] {
@@ -36,7 +36,7 @@ table, td, th {
 }
 
 [role="tab"][aria-selected="true"] {
-    border-top-color: rgb(183, 255, 0);
+    border-top-color: #b7ff00;
     border-bottom-color: #00ff26;
     background: #00ff26;
 }

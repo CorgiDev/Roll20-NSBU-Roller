@@ -1,52 +1,52 @@
 /* General Styling */
 body {
-    color: #563001d9;
+    color: #563001;
 }
 
 /* Tabpanel Formatting */
 [role="tabpanel"] {
-    border: 2px solid hsl(219deg 1% 72%);
-    background: hsl(220deg 43% 99%);
+    border: 2px solid #b7b7b8;
+    background: #fbfcfe;
 }
 
 [role="tab"]:hover span.focus,
 [role="tab"]:focus span.focus,
 [role="tab"]:active span.focus {
-  border: 2px solid rgb(36 116 214);
+  border: 2px solid #2474d6;
 }
 
 [role="tab"][aria-selected="false"] {
-    border-bottom: 1px solid hsl(219deg 1% 72%);
+    border-bottom: 1px solid #b7b7b8;
 }
 
 [role="tab"][aria-selected="true"] {
-    border-top-color: rgb(36 116 214);
-    border-bottom-color: hsl(220deg 43% 99%);
-    background: hsl(220deg 43% 99%);
+    border-top-color: #2474d6;
+    border-bottom-color: #fbfcfe;
+    background: #fbfcfe;
 }
 
 [role="tab"],
 [role="tab"]:focus,
 [role="tab"]:hover {
-  border: 1px solid hsl(219deg 1% 72%);
-  border-bottom: 2px solid hsl(219deg 1% 72%);
-  background: hsl(220deg 20% 94%);
+  border: 1px solid #b7b7b8;
+  border-bottom: 2px solid #b7b7b8;
+  background: #edeff3;
 }
 
 /* Skills */
 #skillRollers section {
-    border: double #563001d9 4px;
+    border: double #563001 4px;
 }
 
 [type="button"] {
-    background: #563001d9;
+    background: #563001;
     color: white;
 }
 
 /* Ability Table */
 
 table, td, th {
-    border: 1px solid #563001d9;
+    border: 1px solid #563001;
 }
   
 /* Footer Styles */
