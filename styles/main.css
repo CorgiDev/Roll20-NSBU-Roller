@@ -1,7 +1,4 @@
 /* General Styling */
-body {
-    color: #563001d9;
-}
 
 label {
     font-weight:bold;
@@ -9,6 +6,10 @@ label {
 
 li {
     margin: 5px;
+}
+
+p {
+    margin-bottom: 5px;
 }
 
 /* Skills Styles */
@@ -20,7 +21,6 @@ li {
 #skillRollers section {
     margin: 0px 10px 10px 10px;
     padding: 0px 10px 5px 10px;
-    border: double #bd6800d9 4px;
     border-radius: 10px;
 }
 
@@ -33,8 +33,6 @@ li {
 
 table, td, th {
     min-width: 80%;
-    border: 1px solid #bd6800d9;
-    margin: 0;
     padding: 5px;
 }
   

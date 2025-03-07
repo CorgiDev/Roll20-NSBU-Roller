@@ -1,0 +1,16 @@
+/* General Styling */
+body {
+    color: #563001d9;
+}
+  
+#skillRollers section {
+    border: double #bd6800d9 4px;
+}
+
+/* Ability Table */
+
+table, td, th {
+    border: 1px solid #bd6800d9;
+}
+  
+/* Footer Styles */
