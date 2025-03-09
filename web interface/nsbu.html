@@ -4,18 +4,19 @@
         <title>NSBU Tracker</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="styles/normalize.css">
         <link rel="stylesheet" type="text/css" href="styles/main.css">
         <link rel="stylesheet" type="text/css" href="styles/tablist.css">
-        <link rel="stylesheet" type="text/css" href="styles/light.css">
-        <!-- <link rel="stylesheet" type="text/css" href="styles/dark.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="styles/light.css"> -->
+        <link rel="stylesheet" type="text/css" href="styles/dark.css">
         <!-- <link rel="stylesheet" type="text/css" href="styles/responsive.css"> -->
     </head>
     <body>
         <!-- Tabs for skills and abilities -->
         <main>
             <h1>Never Stop Blowing Up (NSBU) Tracker</h1>
-            <label for="actionHeroName">Action Hero Name:</label><input type="text" id="actionHeroName" name="actionHeroName" aria-label="Action Hero Name" title="Action Hero Name">
-            <label for="catchPhrase">Catch Phrase:</label><input type="text" id="catchPhrase" name="catchPhrase" aria-label="Catch Phrase" title="Catch Phrase">
+        
+        
             <div role="tablist" aria-labelledby="tablist-1" class="manual">
                 <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
                     <span class="focus">Skills</span>
@@ -52,7 +53,6 @@
                         </select>
                         <input type="button" id="stuntsButton1" value="Roll Stunts Here" class="rollStat" onclick="RollSkill(stuntsDie.value, stuntsResult.id)">
                         <p role="status">Stunts Roll Result: <span id="stuntsResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="stuntsCode">
@@ -75,7 +75,6 @@
                         </select>
                         <input type="button" id="brawlButton1" value="Roll Brawl Here" class="rollStat" onclick="RollSkill(brawlDie.value, brawlResult.id)">
                         <p role="status">Brawl Roll Result: <span id="brawlResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="brawlCode">
@@ -98,7 +97,6 @@
                         </select>
                         <input type="button" id="toughButton1" value="Roll Tough Here" class="rollStat" onclick="RollSkill(toughDie.value, toughResult.id)">
                         <p role="status">Tough Roll Result: <span id="toughResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="toughCode">
@@ -121,7 +119,6 @@
                         </select>
                         <input type="button" id="techButton1" value="Roll Tech Here" class="rollStat" onclick="RollSkill(techDie.value, techResult.id)">
                         <p role="status">Tech Roll Result: <span id="techResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="techCode">
@@ -144,7 +141,6 @@
                         </select>
                         <input type="button" id="weaponsButton1" value="Roll Weapons Here" class="rollStat" onclick="RollSkill(weaponsDie.value, weaponsResult.id)">
                         <p role="status">Weapons Roll Result: <span id="weaponsResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="weaponsCode">
@@ -167,7 +163,6 @@
                         </select>
                         <input type="button" id="driveButton1" value="Roll Drive Here" class="rollStat" onclick="RollSkill(driveDie.value, driveResult.id)">
                         <p role="status">Drive Roll Result: <span id="driveResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="driveCode">
@@ -190,7 +185,6 @@
                         </select>
                         <input type="button" id="sneakButton1" value="Roll Sneak Here" class="rollStat" onclick="RollSkill(sneakDie.value, sneakResult.id)">
                         <p role="status">Sneak Roll Result: <span id="sneakResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="sneakCode">
@@ -213,7 +207,6 @@
                         </select>
                         <input type="button" id="witsButton1" value="Roll Wits Here" class="rollStat" onclick="RollSkill(witsDie.value, witsResult.id)">
                         <p role="status">Wits Roll Result: <span id="witsResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="witsCode">
@@ -236,7 +229,6 @@
                         </select>
                         <input type="button" id="hotButton1" value="Roll Hot Here" class="rollStat" onclick="RollSkill(hotDie.value, hotResult.id)">
                         <p role="status">Hot Roll Result: <span id="hotResult">Not yet rolled</span></p>
-                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="hotCode">
@@ -255,34 +247,34 @@
                         <li>
                             <label for="superficialInjury">Superficial:</label>
                             <select name="superficial-select" id="superficialInjury" onchange="setSkillDieValue(select.id, select.Value)">
-                            <option value="0">--Set the Superficial injury count--</option>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                                <option value="0">--Set the Superficial injury count--</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select>
                         </li>
                         <li>
                             <label for="severeInjury">Severe:</label>
                             <select name="severe-select" id="severeInjury" onchange="setSkillDieValue(select.id, select.Value)">
-                            <option value="0">--Set the Severe injury count--</option>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                                <option value="0">--Set the Severe injury count--</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select>
                         </li>
                         <li>
                             <label for="adrenlizedInjury">Adrenlized:</label>
                             <select name="adrenlized-select" id="adrenlizedInjury" onchange="setSkillDieValue(select.id, select.Value)">
-                            <option value="0">--Set the Adrenlized injury count--</option>
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                                <option value="0">--Set the Adrenlized injury count--</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
                             </select>
                         </li>
                     </ul>
@@ -767,17 +759,24 @@
                 <div>
                     <h2>Settings</h2>
                     <h3>Export Character Info</h3>
-                    <p>Will have an export button.</p>
+                    <p>This button currently does not work. I will be implementing it in a later version.</p>
+                    <p>This button is used to export a character's information from this web app.</p>
+                    <input type="button" id="exportToggle" disabled type="button" aria-label="Export Character Information">
+
                     <h3>Import Character Info</h3>
-                    <p>Will have a file selection option and an Import button.</p>
+                    <p>This button currently does not work. I will be implementing it in a later version.</p>
+                    <p>This button is used to import a character's information into this web app.</p>
+                    <input type="button" id="importToggle" disabled type="button" aria-label="Import Character Information">
+
                     <h3>Dark Mode Toggle</h3>
                     <p>This button currently does not work. I will be implementing it in a later version.</p>
-                    <button id="darkModeToggle" disabled type="button" data-theme-toggle aria-label="Change to light theme">Change to Light Mode</button>
+                    <p>This button is intended to be used to toggle between light and dark mode.</p>
+                    <input type="button" id="darkModeToggle" disabled type="button" data-theme-toggle aria-label="Change to light Mode">
                 </div>
             </div>
         </main>
         <footer>
-            <p>The NSBU system was written by Brennan Lee Mulligan & Carlos Luna.Design & Layout by Ruby Lavin.With special thanks to The Intrepid Heroes & Hunters Entertainment.</p>
+        With special thanks to The Intrepid Heroes & Hunters Entertainment.</p>
         </footer>
         <script src="scripts/tabs.js"></script>
         <script src="scripts/skills.js"></script>

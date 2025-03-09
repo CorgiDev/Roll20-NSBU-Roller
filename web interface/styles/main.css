@@ -21,6 +21,7 @@ li {
 
 p {
     margin-bottom: 5px;
+    display: block;
 }
 
 label {
@@ -53,6 +54,11 @@ code {
 
 .rollStat {
     margin: 10px;
+}
+
+/* Injuries */
+#injuries-List label {
+    min-width:200px;
 }
 
 /* Ability Table */
