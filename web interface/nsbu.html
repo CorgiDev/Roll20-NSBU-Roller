@@ -14,8 +14,8 @@
         <!-- Tabs for skills and abilities -->
         <main>
             <h1>Never Stop Blowing Up (NSBU) Tracker</h1>
-            <label for="actionHeroName">Action Hero Name:</label><input type="text" id="actionHeroName" name="actionHeroName" aria-label="Action Hero Name" title="Action Hero Name"><br><br>
-            <label for="catchPhrase">Catch Phrase:</label><input type="text" id="catchPhrase" name="catchPhrase" aria-label="Catch Phrase" title="Catch Phrase"><br><br>
+            <label for="actionHeroName">Action Hero Name:</label><input type="text" id="actionHeroName" name="actionHeroName" aria-label="Action Hero Name" title="Action Hero Name">
+            <label for="catchPhrase">Catch Phrase:</label><input type="text" id="catchPhrase" name="catchPhrase" aria-label="Catch Phrase" title="Catch Phrase">
             <div role="tablist" aria-labelledby="tablist-1" class="manual">
                 <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
                     <span class="focus">Skills</span>
@@ -52,7 +52,7 @@
                         </select>
                         <input type="button" id="stuntsButton1" value="Roll Stunts Here" class="rollStat" onclick="RollSkill(stuntsDie.value, stuntsResult.id)">
                         <p role="status">Stunts Roll Result: <span id="stuntsResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="stuntsCode">
@@ -75,7 +75,7 @@
                         </select>
                         <input type="button" id="brawlButton1" value="Roll Brawl Here" class="rollStat" onclick="RollSkill(brawlDie.value, brawlResult.id)">
                         <p role="status">Brawl Roll Result: <span id="brawlResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="brawlCode">
@@ -98,7 +98,7 @@
                         </select>
                         <input type="button" id="toughButton1" value="Roll Tough Here" class="rollStat" onclick="RollSkill(toughDie.value, toughResult.id)">
                         <p role="status">Tough Roll Result: <span id="toughResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="toughCode">
@@ -121,7 +121,7 @@
                         </select>
                         <input type="button" id="techButton1" value="Roll Tech Here" class="rollStat" onclick="RollSkill(techDie.value, techResult.id)">
                         <p role="status">Tech Roll Result: <span id="techResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="techCode">
@@ -144,7 +144,7 @@
                         </select>
                         <input type="button" id="weaponsButton1" value="Roll Weapons Here" class="rollStat" onclick="RollSkill(weaponsDie.value, weaponsResult.id)">
                         <p role="status">Weapons Roll Result: <span id="weaponsResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="weaponsCode">
@@ -167,7 +167,7 @@
                         </select>
                         <input type="button" id="driveButton1" value="Roll Drive Here" class="rollStat" onclick="RollSkill(driveDie.value, driveResult.id)">
                         <p role="status">Drive Roll Result: <span id="driveResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="driveCode">
@@ -190,7 +190,7 @@
                         </select>
                         <input type="button" id="sneakButton1" value="Roll Sneak Here" class="rollStat" onclick="RollSkill(sneakDie.value, sneakResult.id)">
                         <p role="status">Sneak Roll Result: <span id="sneakResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="sneakCode">
@@ -213,7 +213,7 @@
                         </select>
                         <input type="button" id="witsButton1" value="Roll Wits Here" class="rollStat" onclick="RollSkill(witsDie.value, witsResult.id)">
                         <p role="status">Wits Roll Result: <span id="witsResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="witsCode">
@@ -236,7 +236,7 @@
                         </select>
                         <input type="button" id="hotButton1" value="Roll Hot Here" class="rollStat" onclick="RollSkill(hotDie.value, hotResult.id)">
                         <p role="status">Hot Roll Result: <span id="hotResult">Not yet rolled</span></p>
-                        <br>
+                        
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="hotCode">
@@ -777,7 +777,7 @@
             </div>
         </main>
         <footer>
-            <p>The NSBU system was written by Brennan Lee Mulligan & Carlos Luna.<br>Design & Layout by Ruby Lavin.<br>With special thanks to The Intrepid Heroes & Hunters Entertainment.</p>
+            <p>The NSBU system was written by Brennan Lee Mulligan & Carlos Luna.Design & Layout by Ruby Lavin.With special thanks to The Intrepid Heroes & Hunters Entertainment.</p>
         </footer>
         <script src="scripts/tabs.js"></script>
         <script src="scripts/skills.js"></script>
