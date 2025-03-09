@@ -250,37 +250,13 @@
                     <p>The following options are used to set the number of various injury types your character has.</p>
                     <ul id="injuries-List">
                         <li>
-                            <label for="superficialInjury">Superficial:</label>
-                            <select name="superficial-select" id="superficialInjury" onchange="setSkillDieValue(select.id, select.Value)">
-                                <option value="0">--Set the Superficial injury count--</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
+                            <label for="superficialInjury">Superficial:</label><input type="number" id="superficialInjury" value="0" min="0" max="9999" step="1" aria-label="Superficial Injuries" title="Superficial Injuries">
                         </li>
                         <li>
-                            <label for="severeInjury">Severe:</label>
-                            <select name="severe-select" id="severeInjury" onchange="setSkillDieValue(select.id, select.Value)">
-                                <option value="0">--Set the Severe injury count--</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
+                            <label for="severeInjury">Severe:</label><input type="number" id="severeInjury" value="0" min="0" max="9999" step="1" aria-label="Severe Injuries" title="Severe Injuries">
                         </li>
                         <li>
-                            <label for="adrenlizedInjury">Adrenlized:</label>
-                            <select name="adrenlized-select" id="adrenlizedInjury" onchange="setSkillDieValue(select.id, select.Value)">
-                                <option value="0">--Set the Adrenlized injury count--</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                            </select>
+                            <label for="adrenlizedInjury">Adrenlized:</label><input type="number" id="adrenlizedInjury" value="0" min="0" max="9999" step="1" aria-label="Adrenlized Injuries" title="Adrenlized Injuries">
                         </li>
                     </ul>
                 </div>

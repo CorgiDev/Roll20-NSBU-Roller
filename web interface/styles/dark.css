@@ -4,6 +4,15 @@
     color: #00ff26
 }
 
+select {
+    border: 1px solid #00ff26;
+}
+
+input[type="text"],input[type="number"] {
+    background: #00ff26;
+    color: black;
+}
+
 code {
     border: 4px solid #00ff26;
 }
