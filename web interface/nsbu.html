@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
     <head>
         <title>NSBU Tracker</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="styles/main.css">
         <link rel="stylesheet" type="text/css" href="styles/tablist.css">
-        <!-- <link rel="stylesheet" type="text/css" href="styles/light.css"> -->
+        <link rel="stylesheet" type="text/css" href="styles/light.css">
         <!-- <link rel="stylesheet" type="text/css" href="styles/dark.css"> -->
-        <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+        <!-- <link rel="stylesheet" type="text/css" href="styles/responsive.css"> -->
     </head>
     <body>
         <!-- Tabs for skills and abilities -->
-        <h1>Never Stop Blowing Up (NSBU) Tracker</h1>
-        <main class="tablist-Wrapper">
+        <main>
+            <h1>Never Stop Blowing Up (NSBU) Tracker</h1>
+            <label for="actionHeroName">Action Hero Name:</label><input type="text" id="actionHeroName" name="actionHeroName" aria-label="Action Hero Name" title="Action Hero Name"><br><br>
+            <label for="catchPhrase">Catch Phrase:</label><input type="text" id="catchPhrase" name="catchPhrase" aria-label="Catch Phrase" title="Catch Phrase"><br><br>
             <div role="tablist" aria-labelledby="tablist-1" class="manual">
                 <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
                     <span class="focus">Skills</span>
@@ -36,149 +38,212 @@
                 <h2>Skills</h2>
                 <p>When an Action Hero wants to do something totally sick, the GM tells them which of the 9 key skills to roll from.</p>
                 <div id="skillRollers">
-                    <section id="stuntSection" class="skillSection">
-                        <h3>Stunts</h3>
-                        <form id="stunts-form" action="">
-                            <select aria-label="Stunts Die Value" name="stuntDie" id="stunt-die">
-                                <option value="">--Set Stunts Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Stunts" class="rollStat">
-                        </form>
+                    <section id="stuntsSection" class="skillSection">
+                        <h3 id="stuntsHeading">Stunts</h3>
+                        <select aria-label="Stunts Die Value" name="stuntsDie" id="stuntsDie" onchange="UpdateCopyText(stuntsHeading.textContent, stuntsDie.value, stuntsCode.id)">
+                            <option value="0">--Set Stunts Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="stuntsButton1" value="Roll Stunts Here" class="rollStat" onclick="RollSkill(stuntsDie.value, stuntsResult.id)">
+                        <p role="status">Stunts Roll Result: <span id="stuntsResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="stuntsCode">
+                                No stunts die set.
+                            </code>
+                            <input type="button" value="Copy Stunts Roll20 Text" onclick="CopyText(stuntsCode.id)">
+                        </div>
                     </section>
                     <section id="brawlSection" class="skillSection">
-                        <h3>Brawl</h3>
-                        <form id="brawl-form">
-                            <select aria-label="Brawl Die Value" name="brawlDie" id="brawl-die">
-                                <option value="">--Set Brawl Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Brawl" class="rollStat">
-                        </form>
+                        <h3 id="brawlHeading">Brawl</h3>
+                        <select aria-label="Brawl Die Value" name="brawlDie" id="brawlDie" onchange="UpdateCopyText(brawlHeading.textContent, brawlDie.value, brawlCode.id)">
+                            <option value="0">--Set Brawl Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="brawlButton1" value="Roll Brawl Here" class="rollStat" onclick="RollSkill(brawlDie.value, brawlResult.id)">
+                        <p role="status">Brawl Roll Result: <span id="brawlResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="brawlCode">
+                                No Brawl die set.
+                            </code>
+                            <input type="button" value="Copy Brawl Roll20 Text" onclick="CopyText(brawlCode.id)">
+                        </div>
                     </section>
                     <section id="toughSection" class="skillSection">
-                        <h3>Tough</h3>
-                        <form id="tough-form">
-                            <select aria-label="Tough Die Value" name="toughDie" id="tough-die">
-                                <option value="">--Set Tough Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Tough" class="rollStat" >
-                        </form>
+                        <h3 id="toughHeading">Tough</h3>
+                        <select aria-label="Tough Die Value" name="toughDie" id="toughDie" onchange="UpdateCopyText(toughHeading.textContent, toughDie.value, toughCode.id)">
+                            <option value="0">--Set Tough Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="toughButton1" value="Roll Tough Here" class="rollStat" onclick="RollSkill(toughDie.value, toughResult.id)">
+                        <p role="status">Tough Roll Result: <span id="toughResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="toughCode">
+                                No Tough die set.
+                            </code>
+                            <input type="button" value="Copy Tough Roll20 Text" onclick="CopyText(toughCode.id)">
+                        </div>
                     </section>
                     <section id="techSection" class="skillSection">
-                        <h3>Tech</h3>
-                        <form id="tech-form">
-                            <select aria-label="Tech Die Value" name="tech-die" id="tech-die">
-                                <option value="">--Set Tech Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Tech" class="rollStat" >
-                        </form>
+                        <h3 id="techHeading">Tech</h3>
+                        <select aria-label="Tech Die Value" name="techDie" id="techDie" onchange="UpdateCopyText(techHeading.textContent, techDie.value, techCode.id)">
+                            <option value="0">--Set Tech Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="techButton1" value="Roll Tech Here" class="rollStat" onclick="RollSkill(techDie.value, techResult.id)">
+                        <p role="status">Tech Roll Result: <span id="techResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="techCode">
+                                No Tech die set.
+                            </code>
+                            <input type="button" value="Copy Tech Roll20 Text" onclick="CopyText(techCode.id)">
+                        </div>
                     </section>
                     <section id="weaponsSection" class="skillSection">
-                        <h3>Weapons</h3>
-                        <form id="weapons-form">
-                            <select aria-label="Weapons Die Value" name="weapons-die" id="weapons-die">
-                                <option value="">--Set Weapons Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Weapons" class="rollStat" >
-                        </form>
+                        <h3 id="weaponsHeading">Weapons</h3>
+                        <select aria-label="Weapons Die Value" name="weaponsDie" id="weaponsDie" onchange="UpdateCopyText(weaponsHeading.textContent, weaponsDie.value, weaponsCode.id)">
+                            <option value="0">--Set Weapons Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="weaponsButton1" value="Roll Weapons Here" class="rollStat" onclick="RollSkill(weaponsDie.value, weaponsResult.id)">
+                        <p role="status">Weapons Roll Result: <span id="weaponsResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="weaponsCode">
+                                No Weapons die set.
+                            </code>
+                            <input type="button" value="Copy Weapons Roll20 Text" onclick="CopyText(weaponsCode.id)">
+                        </div>
                     </section>
                     <section id="driveSection" class="skillSection">
-                        <h3>Drive</h3>
-                        <form id="drive-form">
-                            <select aria-label="Drive Die Value" name="drive-die" id="drive-die">
-                                <option value="">--Set Drive Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Drive" class="rollStat" >
-                        </form>
+                        <h3 id="driveHeading">Drive</h3>
+                        <select aria-label="Drive Die Value" name="driveDie" id="driveDie" onchange="UpdateCopyText(driveHeading.textContent, driveDie.value, driveCode.id)">
+                            <option value="0">--Set Drive Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="driveButton1" value="Roll Drive Here" class="rollStat" onclick="RollSkill(driveDie.value, driveResult.id)">
+                        <p role="status">Drive Roll Result: <span id="driveResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="driveCode">
+                                No Drive die set.
+                            </code>
+                            <input type="button" value="Copy Drive Roll20 Text" onclick="CopyText(driveCode.id)">
+                        </div>
                     </section>
                     <section id="sneakSection" class="skillSection">
-                        <h3>Sneak</h3>
-                        <form id="sneak-form">
-                            <select aria-label="Sneak Die Value" name="sneak-die" id="sneak-die">
-                                <option value="">--Set Sneak Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Sneak" class="rollStat" >
-                        </form>
+                        <h3 id="sneakHeading">Sneak</h3>
+                        <select aria-label="Sneak Die Value" name="sneakDie" id="sneakDie" onchange="UpdateCopyText(sneakHeading.textContent, sneakDie.value, sneakCode.id)">
+                            <option value="0">--Set Sneak Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="sneakButton1" value="Roll Sneak Here" class="rollStat" onclick="RollSkill(sneakDie.value, sneakResult.id)">
+                        <p role="status">Sneak Roll Result: <span id="sneakResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="sneakCode">
+                                No Sneak die set.
+                            </code>
+                            <input type="button" value="Copy Sneak Roll20 Text" onclick="CopyText(sneakCode.id)">
+                        </div>
                     </section>
                     <section id="witsSection" class="skillSection">
-                        <h3>Wits</h3>
-                        <form id="wits-form">
-                            <select aria-label="Wits Die Value" name="wits-die" id="wits-die">
-                                <option value="">--Set Wits Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Wits" class="rollStat" >
-                        </form>
+                        <h3 id="witsHeading">Wits</h3>
+                        <select aria-label="Wits Die Value" name="witsDie" id="witsDie" onchange="UpdateCopyText(witsHeading.textContent, witsDie.value, witsCode.id)">
+                            <option value="0">--Set Wits Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="witsButton1" value="Roll Wits Here" class="rollStat" onclick="RollSkill(witsDie.value, witsResult.id)">
+                        <p role="status">Wits Roll Result: <span id="witsResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="witsCode">
+                                No Wits die set.
+                            </code>
+                            <input type="button" value="Copy Wits Roll20 Text" onclick="CopyText(witsCode.id)">
+                        </div>
                     </section>
                     <section id="hotSection" class="skillSection">
-                        <h3>Hot</h3>
-                        <form id="hot-form">
-                            <select aria-label="Hot Die Value" name="hot-die" id="hot-die">
-                                <option value="">--Set Hot Die Value--</option>
-                                <option value="4">d4</option>
-                                <option value="6">d6</option>
-                                <option value="8">d8</option>
-                                <option value="10">d10</option>
-                                <option value="12">d12</option>
-                                <option value="20">d20</option>
-                                <option value="100">d100</option>
-                            </select>
-                            <input type="button" value="Roll Hot" class="rollStat" >
-                        </form>
+                        <h3 id="hotHeading">Hot</h3>
+                        <select aria-label="Hot Die Value" name="hotDie" id="hotDie" onchange="UpdateCopyText(hotHeading.textContent, hotDie.value, hotCode.id)">
+                            <option value="0">--Set Hot Die Value--</option>
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                        <input type="button" id="hotButton1" value="Roll Hot Here" class="rollStat" onclick="RollSkill(hotDie.value, hotResult.id)">
+                        <p role="status">Hot Roll Result: <span id="hotResult">Not yet rolled</span></p>
+                        <br>
+                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <div>
+                            <code id="hotCode">
+                                No Hot die set.
+                            </code>
+                            <input type="button" value="Copy Hot Roll20 Text" onclick="CopyText(hotCode.id)">
+                        </div>
                     </section>
                 </div>
             </div>
@@ -189,43 +254,44 @@
                     <ul id="injuries-List">
                         <li>
                             <label for="superficialInjury">Superficial:</label>
-                            <select name="superficial-select" id="superficialInjury">
-                              <option value="">--Set the Superficial injury count--</option>
-                              <option value="0">0</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                            <select name="superficial-select" id="superficialInjury" onchange="setSkillDieValue(select.id, select.Value)">
+                            <option value="0">--Set the Superficial injury count--</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                             </select>
                         </li>
                         <li>
                             <label for="severeInjury">Severe:</label>
-                            <select name="severe-select" id="severeInjury">
-                              <option value="">--Set the Severe injury count--</option>
-                              <option value="0">0</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                            <select name="severe-select" id="severeInjury" onchange="setSkillDieValue(select.id, select.Value)">
+                            <option value="0">--Set the Severe injury count--</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                             </select>
                         </li>
                         <li>
                             <label for="adrenlizedInjury">Adrenlized:</label>
-                            <select name="adrenlized-select" id="adrenlizedInjury">
-                              <option value="">--Set the Adrenlized injury count--</option>
-                              <option value="0">0</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                            <select name="adrenlized-select" id="adrenlizedInjury" onchange="setSkillDieValue(select.id, select.Value)">
+                            <option value="0">--Set the Adrenlized injury count--</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
                             </select>
                         </li>
                     </ul>
                 </div>
             </div>
             <div id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3" class="is-hidden">
-              <div>
+            <div>
                 <h2>Abilities</h2>
+                <p>When you initially create a character, you will pick 3 Abilities.</p>
                 <p>At the end of each session, players may use remaining Turbo Tokens to purchase extra abilities. Individual abilities cost 2 Turbo Tokens.</p>
                 <table id="ability-Table">
                     <thead>
@@ -461,7 +527,7 @@
                         </tr>
                     </tbody>
                 </table>
-              </div>
+            </div>
             </div>
             <div id="tabpanel-4" role="tabpanel" aria-labelledby="tab-4" class="is-hidden">
                 <div>
@@ -704,8 +770,9 @@
                     <p>Will have an export button.</p>
                     <h3>Import Character Info</h3>
                     <p>Will have a file selection option and an Import button.</p>
-                    <h3>Dark Mode</h3>
-                    <button id="darkModeToggle" type="button" data-theme-toggle aria-label="Change to light theme">Change to light theme</button>
+                    <h3>Dark Mode Toggle</h3>
+                    <p>This button currently does not work. I will be implementing it in a later version.</p>
+                    <button id="darkModeToggle" disabled type="button" data-theme-toggle aria-label="Change to light theme">Change to Light Mode</button>
                 </div>
             </div>
         </main>
