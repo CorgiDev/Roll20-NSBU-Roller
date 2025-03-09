@@ -30,10 +30,10 @@ label {
 
 code {
     display: block;
-    min-height: 20px;
+    min-height: 10px;
     min-width: 50px;
     padding: 20px 20px 20px 20px;
-    margin: 20px 20px 20px 2px;
+    margin: 10px 10px 10px 2px;
 }
 
 /* Skills Styles */
@@ -54,6 +54,10 @@ code {
 
 .rollStat {
     margin: 10px;
+}
+
+[role="status"] {
+    padding-bottom: 10px;
 }
 
 /* Injuries */
