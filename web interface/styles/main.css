@@ -59,6 +59,11 @@ select, input[type="text"] {
     padding-left: 0;
 }
 
+main {
+    padding: 10px;
+    margin: 10px;
+}
+
 /* Skills Styles */
 #skillRollers {
     display: flex;
