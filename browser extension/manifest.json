@@ -16,7 +16,8 @@
           "scripts/skills.js",
           "scripts/abilities.js",
           "scripts/lightSwitch.js",
-          "scripts/tabs.js"
+          "scripts/tabs.js",
+          "scripts/eventHandlers.js"
         ]
       }
     ],
