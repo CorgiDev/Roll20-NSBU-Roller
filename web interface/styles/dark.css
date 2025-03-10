@@ -8,9 +8,22 @@ select {
     border: 1px solid #00ff26;
 }
 
-input[type="text"],input[type="number"] {
+input {
+    border: 1px solid #00ff26;
+}
+
+input:hover, input:focus {
+    border: 3px solid #00ff26;
+    font-weight: bold;
+}
+
+/* input[type="text"],input[type="number"] {
     background: #00ff26;
     color: black;
+} */
+
+p span {
+    border-bottom: 1px solid #00ff26;
 }
 
 code {
