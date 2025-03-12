@@ -27,8 +27,36 @@ function RollSkillHere(dieSides, skillResultDiv){
     }
 }
 
-// Allows the text to be copied to the clipboard
-function CopyText (paraID) {
+// Sends provided text to the Roll20 chat window and sends the message.
+function Roll20Chat(chatArray) {
+    document.querySelector("textarea").innerHTML = text;
+}
+
+function CopyToClipboard(containerid) {
+    if (window.getSelection) {
+        if (window.getSelection().empty) { // Chrome
+            window.getSelection().empty();
+        } else if (window.getSelection().removeAllRanges) { // Firefox
+            window.getSelection().removeAllRanges();
+        }
+    } else if (document.selection) { // IE?
+        document.selection.empty();
+    }
+
+    if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById(containerid));
+        range.select().createTextRange();
+        document.execCommand("copy");
+    } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById(containerid));
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+    }
+}
+
+/* function CopyText (paraID) {
       // Get the text field
     var copyText = document.getElementById(paraID);
     // Select the text field
@@ -38,9 +66,4 @@ function CopyText (paraID) {
     navigator.clipboard.writeText(copyText.value);
     // Alert the copied text
     alert("Copied the text: " + copyText.value);
-}
-
-// Sends provided text to the Roll20 chat window and sends the message.
-function Roll20Chat(chatArray) {
-    document.querySelector("textarea").innerHTML = text;
-}
+} */
