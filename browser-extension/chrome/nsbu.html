@@ -46,7 +46,7 @@
                 <div id="skillRollers">
                     <section id="stunts-section" class="skillSection">
                         <h3 id="stunts-heading">Stunts</h3>
-                        <select aria-label="Stunts Die Value" name="stuntsDie" id="stunts-die" onchange="UpdateCopyText(stuntsHeading.textContent, stuntsDie.value, stuntsCode.id)">
+                        <select aria-label="Stunts Die Value" name="stuntsDie" id="stunts-die">
                             <option value="0">--Set Stunts Die Value--</option>
                             <option value="4">d4</option>
                             <option value="6">d6</option>
@@ -56,14 +56,14 @@
                             <option value="20">d20</option>
                             <option value="100">d100</option>
                         </select>
-                        <div class="rollDiv"><input type="button" id="stunts-RollHere" value="Roll Stunts Here" class="rollStat" onclick="RollSkillHere(stuntsDie.value, stuntsResult.id)"></div>
+                        <div class="rollDiv"><input type="button" id="stunts-RollHere" value="Roll Stunts Here" class="rollStat"></div>
                         <p role="status">Stunts Roll Result: <span id="stunts-result">Not yet rolled</span></p>
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="stunts-code">
                                 No stunts die set.
                             </code>
-                            <input type="button" id="stunts-RollCode" value="Copy Stunts Roll20 Text" onclick="CopyToClipboard(stuntsCode.id)">
+                            <input type="button" id="stunts-RollCode" value="Copy Stunts Roll20 Text">
                         </div>
                     </section>
                     <!--
@@ -763,5 +763,6 @@
         <script src="scripts/tabs.js"></script>
         <script src="scripts/nsbu.js"></script>
         <!-- <script src="scripts/lightSwitch.js"></script> -->
+        <!-- <script src="scripts/events.js"></script> -->
     </body>
 </html>

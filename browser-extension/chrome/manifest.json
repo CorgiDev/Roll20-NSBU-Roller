@@ -13,11 +13,10 @@
           "https://*.roll20.net/*"
         ],
         "js": [
-          "scripts/skills.js",
-          "scripts/abilities.js",
+          "scripts/nsbu.js",
+          "scripts/events.js",
           "scripts/lightSwitch.js",
-          "scripts/tabs.js",
-          "scripts/eventHandlers.js"
+          "scripts/tabs.js"
         ]
       }
     ],
