@@ -1,6 +1,11 @@
 # Roll20 Never Stop Blowing Up (NSBU) Roller
 
-This is just a browser extension to make my NSBU rolls more easily.
+This is just a browser extension to make my Never Stop Blowing Up (NSBU) rolls more easily. This is all based on the NSBU game system. You can learn more about it from the following pages:
+
+- [‘Never Stop Blowing Up’ Game System | DropOut Store](https://store.dropout.tv/products/never-stop-blowing-up-game-system) (It is free!)
+- [Dimension 20: Never Stop Blowing Up | :DropOut](https://www.dropout.tv/dimension-20-never-stop-blowing-up)
+  - 10 episodes
+  - Requires a subscription to watch.
 
 ## Stat Types
 
