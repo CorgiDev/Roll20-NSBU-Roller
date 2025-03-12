@@ -44,9 +44,9 @@
                 <h2>Skills</h2>
                 <p>When an Action Hero wants to do something totally sick, the GM tells them which of the 9 key skills to roll from.</p>
                 <div id="skillRollers">
-                    <section id="stuntsSection" class="skillSection">
-                        <h3 id="stuntsHeading">Stunts</h3>
-                        <select aria-label="Stunts Die Value" name="stuntsDie" id="stuntsDie" onchange="UpdateCopyText(stuntsHeading.textContent, stuntsDie.value, stuntsCode.id)">
+                    <section id="stunts-section" class="skillSection">
+                        <h3 id="stunts-heading">Stunts</h3>
+                        <select aria-label="Stunts Die Value" name="stuntsDie" id="stunts-die" onchange="UpdateCopyText(stuntsHeading.textContent, stuntsDie.value, stuntsCode.id)">
                             <option value="0">--Set Stunts Die Value--</option>
                             <option value="4">d4</option>
                             <option value="6">d6</option>
@@ -56,16 +56,17 @@
                             <option value="20">d20</option>
                             <option value="100">d100</option>
                         </select>
-                        <div class="rollDiv"><input type="button" id="stuntsButton1" value="Roll Stunts Here" class="rollStat" onclick="RollSkill(stuntsDie.value, stuntsResult.id)"></div>
-                        <p role="status">Stunts Roll Result: <span id="stuntsResult">Not yet rolled</span></p>
+                        <div class="rollDiv"><input type="button" id="stunts-RollHere" value="Roll Stunts Here" class="rollStat" onclick="RollSkillHere(stuntsDie.value, stuntsResult.id)"></div>
+                        <p role="status">Stunts Roll Result: <span id="stunts-result">Not yet rolled</span></p>
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
-                            <code id="stuntsCode">
+                            <code id="stunts-code">
                                 No stunts die set.
                             </code>
-                            <input type="button" value="Copy Stunts Roll20 Text" onclick="CopyText(stuntsCode.id)">
+                            <input type="button" id="stunts-RollCode" value="Copy Stunts Roll20 Text" onclick="CopyText(stuntsCode.id)">
                         </div>
                     </section>
+                    <!--
                     <section id="brawlSection" class="skillSection">
                         <h3 id="brawlHeading">Brawl</h3>
                         <select aria-label="Brawl Die Value" name="brawlDie" id="brawlDie" onchange="UpdateCopyText(brawlHeading.textContent, brawlDie.value, brawlCode.id)">
@@ -242,6 +243,7 @@
                             <input type="button" value="Copy Hot Roll20 Text" onclick="CopyText(hotCode.id)">
                         </div>
                     </section>
+                    -->
                 </div>
             </div>
             <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="is-hidden">
