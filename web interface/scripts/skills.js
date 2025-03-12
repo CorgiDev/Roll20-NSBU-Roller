@@ -34,18 +34,6 @@ function Roll20Chat() {
     document.querySelector("textarea").innerHTML = text;
  }
 
- function CopyText (paraID) {
-      // Get the text field
-    var copyText = document.getElementById(paraID);
-    // Select the text field
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); // For mobile devices
-    // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.value);
-    // Alert the copied text
-    alert("Copied the text: " + copyText.value);
-}
-
 function CopyToClipboard(containerid) {
     if (window.getSelection) {
         if (window.getSelection().empty) { // Chrome
@@ -69,3 +57,15 @@ function CopyToClipboard(containerid) {
         document.execCommand("copy");
     }
 }
+
+/* function CopyText (paraID) {
+      // Get the text field
+    var copyText = document.getElementById(paraID);
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+    // Alert the copied text
+    alert("Copied the text: " + copyText.value);
+} */
