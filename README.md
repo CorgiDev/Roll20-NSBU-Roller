@@ -7,6 +7,8 @@ This is just a browser extension to make my Never Stop Blowing Up (NSBU) rolls m
   - 10 episodes
   - Requires a subscription to watch.
 
+Additionally, the NSBU system is based on [Kids on Bikes system](https://www.huntersentertainment.com/kidsonbikesrpg) developed by Hunters Entertainment.
+
 ## Stat Types
 
 The following stats are the ones tht would potentially need to roll for:
