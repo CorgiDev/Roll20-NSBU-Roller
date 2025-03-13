@@ -1,5 +1,10 @@
 /* General Styling */
 
+html {
+    width: 800px;
+    height: 600px;
+}
+
 main {
     width: 97%;
 }
@@ -70,6 +75,7 @@ main {
     padding: 0px 10px 5px 10px;
     border-radius: 10px;
     width: 25%;
+    width: 80%;
 }
 
 .rollStat {
