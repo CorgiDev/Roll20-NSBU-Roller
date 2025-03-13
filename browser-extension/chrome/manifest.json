@@ -14,7 +14,6 @@
         ],
         "js": [
           "scripts/nsbu.js",
-          "scripts/events.js",
           "scripts/lightSwitch.js",
           "scripts/tabs.js"
         ]
@@ -30,5 +29,9 @@
     "host_permissions": [
       "https://app.roll20.net/editor",
       "https://app.roll20.net/*"
-    ]
+    ],
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';",
+        "sandbox": "sandbox allow-scripts allow-forms allow-popups allow-modals; script-src 'self' 'unsafe-inline' 'unsafe-eval'; child-src 'self';"
+    }
   }

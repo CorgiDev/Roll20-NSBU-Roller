@@ -7,12 +7,11 @@
         <link rel="stylesheet" type="text/css" href="styles/normalize.css">
         <link rel="stylesheet" type="text/css" href="styles/main.css">
         <link rel="stylesheet" type="text/css" href="styles/tablist.css">
-        <link rel="stylesheet" type="text/css" href="styles/light.css">
-        <!-- <link rel="stylesheet" type="text/css" href="styles/dark.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="styles/light.css"> -->
+        <link rel="stylesheet" type="text/css" href="styles/dark.css">
         <!-- <link rel="stylesheet" type="text/css" href="styles/responsive.css"> -->
     </head>
     <body>
-        <!-- Tabs for skills and abilities -->
         <main>
             <h1>Never Stop Blowing Up (NSBU) Tracker</h1>
 
@@ -22,6 +21,8 @@
             <li><label for="heroCatchphrase">Catchphrase:</label><input type="text" id="heroCatchphrase"></li>
             <li><label for="turboTokens">Turbo Tokens</label><input type="number" id="turboTokens" value="2" min="0" max="9999" step="1" aria-label="Turbo Tokens" title="Turbo Tokens"></li>
             </ul>
+
+            <!-- Tabs for skills, abilities, and more -->
             <div role="tablist" aria-labelledby="tablist-1" class="manual">
                 <button id="tab-1" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1">
                     <span class="focus">Skills</span>
@@ -40,6 +41,7 @@
                 </button>
             </div>
             
+            <!-- Tabs Content -->
             <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
                 <h2>Skills</h2>
                 <p>When an Action Hero wants to do something totally sick, the GM tells them which of the 9 key skills to roll from.</p>
@@ -760,6 +762,5 @@
         </footer>
         <script src="scripts/tabs.js"></script>
         <script src="scripts/skills.js"></script>
-        <script src="scripts/abilities.js"></script>
     </body>
 </html>

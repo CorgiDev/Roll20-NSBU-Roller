@@ -1,3 +1,7 @@
+/***********
+FUNCTIONS
+***********/
+
 // Rolls a die of provided number of sides
 function RollDice(sides) {
     const roll = Math.floor(Math.random() * sides) + 1;
@@ -5,32 +9,35 @@ function RollDice(sides) {
 }
 
 // Updates the Roll20 Text in the code block
-function UpdateCopyText(skillName,skillValue,skillCodeDiv) {
-    const skillDiv = document.getElementById(skillCodeDiv)
+function UpdateCopyText(skillName,skillValueDiv,skillCodeDiv) {
+    const skillDiv = document.getElementById(skillCodeDiv);
+    const skillValue = (document.getElementById(skillValueDiv)).value;
     if (skillValue ==0){
-        skillCodeDiv.textContent = "Skill currently does not have a valid value set.";
+        skillDiv.innerText = "Skill currently does not have a valid value set.";
     } else {
         let skillText="/me Rolled a " + skillName + " roll (1d"+skillValue + ") [[1d" + skillValue + "]]";
-        skillCodeDiv.textContent = skillText;
+        skillDiv.innerText = skillText;
     }
 }
 
 // Rolls the dice in the window.
-function RollSkillHere(dieSides, skillResultDiv){
+function RollSkillHere(dieSidesDiv, skillResultDiv){
+    const dieSides = (document.getElementById(dieSidesDiv)).value;
+    const skillDiv = document.getElementById(skillResultDiv);
     if (dieSides == 0) {
-        const div = document.getElementById(skillResultDiv)
         div.textContent = "Unable to roll until die value is set.";
     } else {
         const roll = RollDice(dieSides);
-        const div = document.getElementById(skillResultDiv)
-        div.textContent = roll;
+        skillDiv.textContent = roll;
     }
 }
 
 // Sends provided text to the Roll20 chat window and sends the message.
-function Roll20Chat(chatArray) {
-    document.querySelector("textarea").innerHTML = text;
-}
+/*
+    function Roll20Chat(chatArray) {
+        document.querySelector("textarea").innerHTML = text;
+    }
+*/
 
 function CopyToClipboard(containerid) {
     if (window.getSelection) {
@@ -56,113 +63,82 @@ function CopyToClipboard(containerid) {
     }
 }
 
-/* function CopyText (paraID) {
-      // Get the text field
-    var copyText = document.getElementById(paraID);
-    // Select the text field
-    copyText.select();
-    copyText.setSelectionRange(0, 99999); // For mobile devices
-    // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText.value);
-    // Alert the copied text
-    alert("Copied the text: " + copyText.value);
-} */
-
 /*******************
 ELEMENT VARIABLES 
 *******************/
 /* Skills - Stunts */
-    const stuntsHeading = document.getElementById('stunts-heading');
-    const stuntsDie = document.getElementById('stunts-die');
-    const stuntsCode = document.getElementById('stunts-code');
-    const stuntsRollCode = document.getElementById('stunts-RollCode');
-    const stuntsRollHereButton = document.getElementById('stunts-RollHere');
-    const stuntsResult = document.getElementById('stunts-result');
+const stuntsDie = document.getElementById('stunts-die');
+const stuntsRollCode = document.getElementById('stunts-RollCode');
+const stuntsRollHere = document.getElementById('stunts-RollHere');
 /* Skills - Brawl */
-    const brawlDie = document.getElementById('brawl-die');
-    const brawlCode = document.getElementById('brawl-code');
-    const brawlRollCode = document.getElementById('brawl-RollCode');
-    const brawlRollHereButton = document.getElementById('brawl-RollHere');
-    const brawlResult = document.getElementById('brawl-result');
+const brawlDie = document.getElementById('brawl-die');
+const brawlRollCode = document.getElementById('brawl-RollCode');
+const brawlRollHere = document.getElementById('brawl-RollHere');
 /* Skills - Tough */
-    const toughDie = document.getElementById('tough-die');
-    const toughCode = document.getElementById('tough-code');
-    const toughRollCode = document.getElementById('tough-RollCode');
-    const toughRollHereButton = document.getElementById('tough-RollHere');
-    const toughResult = document.getElementById('tough-result');
+const toughDie = document.getElementById('tough-die');
+const toughRollCode = document.getElementById('tough-RollCode');
+const toughRollHere = document.getElementById('tough-RollHere');
 /* Skills - Tech */
-    const techDie = document.getElementById('tech-die');
-    const techCode = document.getElementById('tech-code');
-    const techRollCode = document.getElementById('tech-RollCode');
-    const techRollHereButton = document.getElementById('tech-RollHere');
-    const techResult = document.getElementById('tech-result');
+const techDie = document.getElementById('tech-die');
+const techRollCode = document.getElementById('tech-RollCode');
+const techRollHere = document.getElementById('tech-RollHere');
 /* Skills - Weapons */
-    const weaponsDie = document.getElementById('weapons-die');
-    const weaponsCode = document.getElementById('weapons-code');
-    const weaponsRollCode = document.getElementById('weapons-RollCode');
-    const weaponsRollHereButton = document.getElementById('weapons-RollHere');
-    const weaponsResult = document.getElementById('weapons-result');
+const weaponsDie = document.getElementById('weapons-die');
+const weaponsRollCode = document.getElementById('weapons-RollCode');
+const weaponsRollHere = document.getElementById('weapons-RollHere');
 /* Skills - Drive */
-    const driveDie = document.getElementById('drive-die');
-    const driveCode = document.getElementById('drive-code');
-    const driveRollCode = document.getElementById('drive-RollCode');
-    const driveRollHereButton = document.getElementById('drive-RollHere');
-    const driveResult = document.getElementById('drive-result');
+const driveDie = document.getElementById('drive-die');
+const driveRollCode = document.getElementById('drive-RollCode');
+const driveRollHere = document.getElementById('drive-RollHere');
 /* Skills - Sneak */
-    const sneakDie = document.getElementById('sneak-die');
-    const sneakCode = document.getElementById('sneak-code');
-    const sneakRollCode = document.getElementById('sneak-RollCode');
-    const sneakRollHereButton = document.getElementById('sneak-RollHere');
-    const sneakResult = document.getElementById('sneak-result');
+const sneakDie = document.getElementById('sneak-die');
+const sneakRollCode = document.getElementById('sneak-RollCode');
+const sneakRollHere = document.getElementById('sneak-RollHere');
 /* Skills - Wits */
-    const witsDie = document.getElementById('wits-die');
-    const witsCode = document.getElementById('wits-code');
-    const witsRollCode = document.getElementById('wits-RollCode');
-    const witsRollHereButton = document.getElementById('wits-RollHere');
-    const witsResult = document.getElementById('wits-result');
+const witsDie = document.getElementById('wits-die');
+const witsRollCode = document.getElementById('wits-RollCode');
+const witsRollHere = document.getElementById('wits-RollHere');
 /* Skills - Hot */
-    const hotDie = document.getElementById('hot-die');
-    const hotCode = document.getElementById('hot-code');
-    const hotRollCode = document.getElementById('hot-RollCode');
-    const hotRollHereButton = document.getElementById('hot-RollHere');
-    const hotResult = document.getElementById('hot-result');
+const hotDie = document.getElementById('hot-die');
+const hotRollCode = document.getElementById('hot-RollCode');
+const hotRollHere = document.getElementById('hot-RollHere');
 
 /****************
 EVENT LISTENERS
 ****************/
 /* Skills - Stunts */
-    stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id));
+    stuntsDie.addEventListener("change", () => UpdateCopyText("Stunts", "stunts-die", "stunts-code"));
+    stuntsRollHere.addEventListener("click", () => RollSkillHere("stunts-die", "stunts-result"));
+    stuntsRollCode.addEventListener("click", () => CopyToClipboard("stunts-code"));
 /* Skills - Brawl */
-    /* stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id)); */
+    brawlDie.addEventListener("change", () => UpdateCopyText("Brawl", "brawl-die", "brawl-code"));
+    brawlRollHere.addEventListener("click", () => RollSkillHere("brawl-die", "brawl-result"));
+    brawlRollCode.addEventListener("click", () => CopyToClipboard("brawl-code"));
 /* Skills - Tough */
-    /* stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id)); */
+    toughDie.addEventListener("change", () => UpdateCopyText("Tough", "tough-die", "tough-code"));
+    toughRollHere.addEventListener("click", () => RollSkillHere("tough-die", "tough-result"));
+    toughRollCode.addEventListener("click", () => CopyToClipboard("tough-code"));
 /* Skills - Tech */
-    /* stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id)); */
+    techDie.addEventListener("change", () => UpdateCopyText("Tech", "tech-die", "tech-code"));
+    techRollHere.addEventListener("click", () => RollSkillHere("tech-die", "tech-result"));
+    techRollCode.addEventListener("click", () => CopyToClipboard("tech-code"));
 /* Skills - Weapons */
-    /* stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id)); */
+    weaponsDie.addEventListener("change", () => UpdateCopyText("Weapons", "weapons-die", "weapons-code"));
+    weaponsRollHere.addEventListener("click", () => RollSkillHere("weapons-die", "weapons-result"));
+    weaponsRollCode.addEventListener("click", () => CopyToClipboard("weapons-code"));
 /* Skills - Drive */
-    /* stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id)); */
+    driveDie.addEventListener("change", () => UpdateCopyText("Drive", "drive-die", "drive-code"));
+    driveRollHere.addEventListener("click", () => RollSkillHere("drive-die", "drive-result"));
+    driveRollCode.addEventListener("click", () => CopyToClipboard("drive-code"));
 /* Skills - Sneak */
-    /* stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id)); */
+    sneakDie.addEventListener("change", () => UpdateCopyText("Sneak", "sneak-die", "sneak-code"));
+    sneakRollHere.addEventListener("click", () => RollSkillHere("sneak-die", "sneak-result"));
+    sneakRollCode.addEventListener("click", () => CopyToClipboard("sneak-code"));
 /* Skills - Wits */
-    /* stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id)); */
+    witsDie.addEventListener("change", () => UpdateCopyText("Wits", "wits-die", "wits-code"));
+    witsRollHere.addEventListener("click", () => RollSkillHere("wits-die", "wits-result"));
+    witsRollCode.addEventListener("click", () => CopyToClipboard("wits-code"));
 /* Skills - Hot */
-    /* stuntsDie.addEventListener('change', UpdateCopyText.bind("Stunts", stuntsDieValue, "stunts-code"));
-    stuntsRollHereButton.addEventListener('click', RollSkillHere.bind(stuntsDie.value, stuntsResult.id));
-    stuntsRollCode.addEventListener('click', CopyToClipboard.bind(stuntsCode.id)); */
+    hotDie.addEventListener("change", () => UpdateCopyText("Hot", "hot-die", "hot-code"));
+    hotRollHere.addEventListener("click", () => RollSkillHere("hot-die", "hot-result"));
+    hotRollCode.addEventListener("click", () => CopyToClipboard("hot-code"));
