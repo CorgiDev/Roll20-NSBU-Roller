@@ -52,17 +52,18 @@ select, input[type="text"] {
     padding: 5px;
 }
 
+main {
+    padding: 10px;
+    margin: 10px;
+    max-width: 95%;
+}
+
+/* Skills Styles */
 .rollDiv {
     margin-left: 0;
     padding-left: 0;
 }
 
-main {
-    padding: 10px;
-    margin: 10px;
-}
-
-/* Skills Styles */
 #skillRollers {
     display: flex;
     flex-wrap:wrap;
@@ -74,8 +75,7 @@ main {
     margin: 0px 10px 10px 10px;
     padding: 0px 10px 5px 10px;
     border-radius: 10px;
-    width: 25%;
-    width: 80%;
+    width: 40%;
 }
 
 .rollStat {

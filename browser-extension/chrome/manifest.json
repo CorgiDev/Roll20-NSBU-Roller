@@ -7,6 +7,9 @@
       "default_popup": "nsbu.html",
       "default_icon": "nsbu_extensions.png"
     },
+    "background": {
+          "service_worker": "scripts/background.js"
+    },
     "content_scripts": [
       {
         "matches": [
@@ -16,6 +19,13 @@
           "scripts/nsbu.js",
           "scripts/lightSwitch.js",
           "scripts/tabs.js"
+        ],
+        "css": [
+          "styles/normalize.css",
+          "styles/main.css",
+          "styles/light.css",
+          "styles/dark.css",
+          "styles/tablist.css"
         ]
       }
     ],
@@ -28,7 +38,9 @@
     ],
     "host_permissions": [
       "https://app.roll20.net/editor",
-      "https://app.roll20.net/*"
+      "https://app.roll20.net/*",
+      "http://*/*",
+      "https://*/*"
     ],
     "content_security_policy": {
         "extension_pages": "script-src 'self'; object-src 'self';",

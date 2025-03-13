@@ -32,13 +32,6 @@ function RollSkillHere(dieSidesDiv, skillResultDiv){
     }
 }
 
-// Sends provided text to the Roll20 chat window and sends the message.
-/*
-    function Roll20Chat(chatArray) {
-        document.querySelector("textarea").innerHTML = text;
-    }
-*/
-
 function CopyToClipboard(containerid) {
     if (window.getSelection) {
         if (window.getSelection().empty) { // Chrome
@@ -63,45 +56,63 @@ function CopyToClipboard(containerid) {
     }
 }
 
+// Sends provided text to the Roll20 chat window and sends the message.
+function Roll20ChatSend(messageDiv) {
+    const message = document.getElementById(messageDiv).innerText;
+    alert(currentURL);
+
+    /* if ((tabURL).includes("app.roll20")){
+        chrome.tabs.executeScript(tab.id, {
+            code: `document.querySelector("textarea").innerHTML = ${message};`
+        });
+        chrome.tabs.executeScript(tab.id, {
+            code: `document.getElementById("chatSendBtn").click();`
+        });
+    } else {
+        alert("Not on Roll20. Please navigate to Roll20.net and try again.");
+    } */
+}
+
 /*******************
 ELEMENT VARIABLES 
 *******************/
 /* Skills - Stunts */
-const stuntsDie = document.getElementById('stunts-die');
-const stuntsRollCode = document.getElementById('stunts-RollCode');
-const stuntsRollHere = document.getElementById('stunts-RollHere');
+    const stuntsDie = document.getElementById('stunts-die');
+    const stuntsRollCode = document.getElementById('stunts-RollCode');
+    const stuntsRollHere = document.getElementById('stunts-RollHere');
+    const stuntsRoll20Chat = document.getElementById('stunts-Roll20');
 /* Skills - Brawl */
-const brawlDie = document.getElementById('brawl-die');
-const brawlRollCode = document.getElementById('brawl-RollCode');
-const brawlRollHere = document.getElementById('brawl-RollHere');
+    const brawlDie = document.getElementById('brawl-die');
+    const brawlRollCode = document.getElementById('brawl-RollCode');
+    const brawlRollHere = document.getElementById('brawl-RollHere');
 /* Skills - Tough */
-const toughDie = document.getElementById('tough-die');
-const toughRollCode = document.getElementById('tough-RollCode');
-const toughRollHere = document.getElementById('tough-RollHere');
+    const toughDie = document.getElementById('tough-die');
+    const toughRollCode = document.getElementById('tough-RollCode');
+    const toughRollHere = document.getElementById('tough-RollHere');
 /* Skills - Tech */
-const techDie = document.getElementById('tech-die');
-const techRollCode = document.getElementById('tech-RollCode');
-const techRollHere = document.getElementById('tech-RollHere');
+    const techDie = document.getElementById('tech-die');
+    const techRollCode = document.getElementById('tech-RollCode');
+    const techRollHere = document.getElementById('tech-RollHere');
 /* Skills - Weapons */
-const weaponsDie = document.getElementById('weapons-die');
-const weaponsRollCode = document.getElementById('weapons-RollCode');
-const weaponsRollHere = document.getElementById('weapons-RollHere');
+    const weaponsDie = document.getElementById('weapons-die');
+    const weaponsRollCode = document.getElementById('weapons-RollCode');
+    const weaponsRollHere = document.getElementById('weapons-RollHere');
 /* Skills - Drive */
-const driveDie = document.getElementById('drive-die');
-const driveRollCode = document.getElementById('drive-RollCode');
-const driveRollHere = document.getElementById('drive-RollHere');
+    const driveDie = document.getElementById('drive-die');
+    const driveRollCode = document.getElementById('drive-RollCode');
+    const driveRollHere = document.getElementById('drive-RollHere');
 /* Skills - Sneak */
-const sneakDie = document.getElementById('sneak-die');
-const sneakRollCode = document.getElementById('sneak-RollCode');
-const sneakRollHere = document.getElementById('sneak-RollHere');
+    const sneakDie = document.getElementById('sneak-die');
+    const sneakRollCode = document.getElementById('sneak-RollCode');
+    const sneakRollHere = document.getElementById('sneak-RollHere');
 /* Skills - Wits */
-const witsDie = document.getElementById('wits-die');
-const witsRollCode = document.getElementById('wits-RollCode');
-const witsRollHere = document.getElementById('wits-RollHere');
+    const witsDie = document.getElementById('wits-die');
+    const witsRollCode = document.getElementById('wits-RollCode');
+    const witsRollHere = document.getElementById('wits-RollHere');
 /* Skills - Hot */
-const hotDie = document.getElementById('hot-die');
-const hotRollCode = document.getElementById('hot-RollCode');
-const hotRollHere = document.getElementById('hot-RollHere');
+    const hotDie = document.getElementById('hot-die');
+    const hotRollCode = document.getElementById('hot-RollCode');
+    const hotRollHere = document.getElementById('hot-RollHere');
 
 /****************
 EVENT LISTENERS
@@ -110,6 +121,7 @@ EVENT LISTENERS
     stuntsDie.addEventListener("change", () => UpdateCopyText("Stunts", "stunts-die", "stunts-code"));
     stuntsRollHere.addEventListener("click", () => RollSkillHere("stunts-die", "stunts-result"));
     stuntsRollCode.addEventListener("click", () => CopyToClipboard("stunts-code"));
+    stuntsRoll20Chat.addEventListener("click", () => Roll20ChatSend("stunts-code"));
 /* Skills - Brawl */
     brawlDie.addEventListener("change", () => UpdateCopyText("Brawl", "brawl-die", "brawl-code"));
     brawlRollHere.addEventListener("click", () => RollSkillHere("brawl-die", "brawl-result"));
