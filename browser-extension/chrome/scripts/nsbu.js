@@ -1,6 +1,7 @@
-/***********
-FUNCTIONS
-***********/
+// Variables that are not dependent on page or extension load status
+let currentURL ="";
+let currentTabID ="";
+const ROLL20_ORIGIN = 'https://app.roll20.net/editor/';
 
 // Rolls a die of provided number of sides
 function RollDice(sides) {
@@ -10,6 +11,7 @@ function RollDice(sides) {
 
 // Updates the Roll20 Text in the code block
 function UpdateCopyText(skillName,skillValueDiv,skillCodeDiv) {
+    let skillMsgName = (skillName.toLowerCase()) + "Msg";
     const skillDiv = document.getElementById(skillCodeDiv);
     const skillValue = (document.getElementById(skillValueDiv)).value;
     if (skillValue ==0){
@@ -17,6 +19,7 @@ function UpdateCopyText(skillName,skillValueDiv,skillCodeDiv) {
     } else {
         let skillText="/me Rolled a " + skillName + " roll (1d"+skillValue + ") [[1d" + skillValue + "]]";
         skillDiv.innerText = skillText;
+        skillMsgName = skillText;
     }
 }
 
@@ -56,22 +59,67 @@ function CopyToClipboard(containerid) {
     }
 }
 
-// Sends provided text to the Roll20 chat window and sends the message.
-function Roll20ChatSend(messageDiv) {
-    const message = document.getElementById(messageDiv).innerText;
-    alert(currentURL);
-
-    /* if ((tabURL).includes("app.roll20")){
-        chrome.tabs.executeScript(tab.id, {
-            code: `document.querySelector("textarea").innerHTML = ${message};`
-        });
-        chrome.tabs.executeScript(tab.id, {
-            code: `document.getElementById("chatSendBtn").click();`
-        });
+function PasteFromClipboard(msgDiv) {
+    if (msgDiv == "textarea"){
+        navigator.clipboard.readText().then(text => {document.querySelector("textarea").innerText = text;})
+        .catch(err => {document.querySelector("textarea").innerText = 'Failed to read clipboard contents: '+err;});
     } else {
-        alert("Not on Roll20. Please navigate to Roll20.net and try again.");
-    } */
+        navigator.clipboard.readText().then(text => {document.getElementById("msgDiv").innerHTML = text;})
+        .catch(err => {document.getElementById("msgDiv").innerHTML = 'Failed to read clipboard contents: '+err;});
+    }
+};
+
+// ROLL20 CHAT FUNCTIONS
+function GetRoll20TabID(){
+    let currentTabID=0;
+    chrome.tabs.query({url: ROLL20_ORIGIN}, (tabs) => {currentTabID = tabs[0].value;});
+    return currentTabID;
+};
+
+function Roll20TabFocus (tabID) {
+    var updateProperties = {'active': true};
+    chrome.tabs.update(tabID, updateProperties, (tab) => { });
+};
+
+function GetSkillMsg(skillMsgDiv){
+    let skillMsg = document.getElementById(skillMsgDiv).innerText;
+    return skillMsg;
+};
+
+function GetSkillValue(skillValueDiv){
+    let skillValue = document.getElementById(skillValueDiv).value;
+    return skillValue;
 }
+
+// Sends provided text to the Roll20 chat window and sends the message.
+function Roll20Send(skillName, skillMsgDiv, skillValueDiv) {
+    let skillValue = GetSkillValue(skillValueDiv);
+    CopyToClipboard(skillMsgDiv);
+    if (skillValue == 0) {
+        alert(skillName + " currently does not have the dice value set. Please set the dice value and try again.");
+    } else if (skillValue > 0) {
+        let currentId=GetRoll20TabID();
+        Roll20TabFocus(currentId);
+        chrome.scripting.executeScript({
+            target: {tabId: currentId},
+            func: PasteFromClipboard("textarea")
+        });
+        // Possibly add line that submits the message in chat.
+    }
+};
+
+/*
+    // Gets the URL of the active tab
+    chrome.tabs.onActivated.addListener(() => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const currentTab = tabs[0];
+        const newURL = currentTab.url;
+        const newID = currentTab.id;
+        currentURL = newURL;
+        currentTabID = newID;
+        });
+    });
+  */
 
 /*******************
 ELEMENT VARIABLES 
@@ -80,39 +128,55 @@ ELEMENT VARIABLES
     const stuntsDie = document.getElementById('stunts-die');
     const stuntsRollCode = document.getElementById('stunts-RollCode');
     const stuntsRollHere = document.getElementById('stunts-RollHere');
-    const stuntsRoll20Chat = document.getElementById('stunts-Roll20');
+    const stuntsRoll20Btn = document.getElementById('stunts-Roll20');
+
 /* Skills - Brawl */
     const brawlDie = document.getElementById('brawl-die');
     const brawlRollCode = document.getElementById('brawl-RollCode');
     const brawlRollHere = document.getElementById('brawl-RollHere');
+    const brawlRoll20Btn = document.getElementById('brawl-Roll20');
+
 /* Skills - Tough */
     const toughDie = document.getElementById('tough-die');
     const toughRollCode = document.getElementById('tough-RollCode');
     const toughRollHere = document.getElementById('tough-RollHere');
+    const toughRoll20Btn = document.getElementById('tough-Roll20');
+
 /* Skills - Tech */
     const techDie = document.getElementById('tech-die');
     const techRollCode = document.getElementById('tech-RollCode');
     const techRollHere = document.getElementById('tech-RollHere');
+    const techRoll20Btn = document.getElementById('tech-Roll20');
+
 /* Skills - Weapons */
     const weaponsDie = document.getElementById('weapons-die');
     const weaponsRollCode = document.getElementById('weapons-RollCode');
     const weaponsRollHere = document.getElementById('weapons-RollHere');
+    const weaponsRoll20Btn = document.getElementById('weapons-Roll20');
+
 /* Skills - Drive */
     const driveDie = document.getElementById('drive-die');
     const driveRollCode = document.getElementById('drive-RollCode');
     const driveRollHere = document.getElementById('drive-RollHere');
+    const driveRoll20Btn = document.getElementById('drive-Roll20');
+    
 /* Skills - Sneak */
     const sneakDie = document.getElementById('sneak-die');
     const sneakRollCode = document.getElementById('sneak-RollCode');
     const sneakRollHere = document.getElementById('sneak-RollHere');
+    const sneakRoll20Btn = document.getElementById('sneak-Roll20');
+    
 /* Skills - Wits */
     const witsDie = document.getElementById('wits-die');
     const witsRollCode = document.getElementById('wits-RollCode');
     const witsRollHere = document.getElementById('wits-RollHere');
+    const witsRoll20Btn = document.getElementById('wits-Roll20');
+    
 /* Skills - Hot */
     const hotDie = document.getElementById('hot-die');
     const hotRollCode = document.getElementById('hot-RollCode');
     const hotRollHere = document.getElementById('hot-RollHere');
+    const hotRoll20Btn = document.getElementById('hot-Roll20');
 
 /****************
 EVENT LISTENERS
@@ -121,7 +185,8 @@ EVENT LISTENERS
     stuntsDie.addEventListener("change", () => UpdateCopyText("Stunts", "stunts-die", "stunts-code"));
     stuntsRollHere.addEventListener("click", () => RollSkillHere("stunts-die", "stunts-result"));
     stuntsRollCode.addEventListener("click", () => CopyToClipboard("stunts-code"));
-    stuntsRoll20Chat.addEventListener("click", () => Roll20ChatSend("stunts-code"));
+    stuntsRoll20Btn.addEventListener("click", () => Roll20Send("Stunts","stunts-code","stunts-die"));
+    //Roll20ChatSend (skillName, skillMsgDiv, skillValueDiv)
 /* Skills - Brawl */
     brawlDie.addEventListener("change", () => UpdateCopyText("Brawl", "brawl-die", "brawl-code"));
     brawlRollHere.addEventListener("click", () => RollSkillHere("brawl-die", "brawl-result"));
@@ -154,3 +219,14 @@ EVENT LISTENERS
     hotDie.addEventListener("change", () => UpdateCopyText("Hot", "hot-die", "hot-code"));
     hotRollHere.addEventListener("click", () => RollSkillHere("hot-die", "hot-result"));
     hotRollCode.addEventListener("click", () => CopyToClipboard("hot-code"));
+
+// Roll20 Chat Event Listeners
+    
+/*     brawlRoll20Btn.addEventListener("click", () => Roll20ChatSend(brawlMsg));
+    toughRoll20Btn.addEventListener("click", () => Roll20ChatSend(toughMsg));
+    techRoll20Btn.addEventListener("click", () => Roll20ChatSend(techMsg));
+    weaponsRoll20Btn.addEventListener("click", () => Roll20ChatSend(weaponsMsg));
+    driveRoll20Btn.addEventListener("click", () => Roll20ChatSend(driveMsg));
+    sneakRoll20Btn.addEventListener("click", () => Roll20ChatSend(sneakMsg));
+    witsRoll20Btn.addEventListener("click", () => Roll20ChatSend(witsMsg));
+    hotRoll20Btn.addEventListener("click", () => Roll20ChatSend(hotMsg)); */

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="styles/normalize.css">
-        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="stylesheet" type="text/css" href="styles/sidePanel.css">
         <link rel="stylesheet" type="text/css" href="styles/tablist.css">
         <link rel="stylesheet" type="text/css" href="styles/light.css">
         <!--<link rel="stylesheet" type="text/css" href="styles/dark.css">-->
@@ -17,9 +17,10 @@
                 <h2>Character Information</h2>
                 <section aria-label="Basic Information">
                     <div id="baseInfo">
-                        <span><label for="heroName">Action Hero Name</label><input type="text" id="heroName" size="25"></span>
-                        <span><label for="heroCatchphrase">Catchphrase</label><input type="text" id="heroCatchphrase" size="25"></span>
+                        <span><label for="heroName">Action Hero Name</label><input type="text" id="heroName"></span>
+                        <span><label for="heroCatchphrase">Catchphrase</label><input type="text" id="heroCatchphrase"></span>
                         <span><label for="turboTokens">Turbo Tokens</label><input type="number" id="turboTokens" value="2" min="0" max="9999" step="1" aria-label="Turbo Tokens" title="Turbo Tokens"></span>
+                        <span><label id="additionalDetailsLabel" for="additionalDetails">Additional Details</label></span><span><textarea id="additionalDetails" name="Additional Details" rows="4" cols="50" aria-label="Additional Details" title="Additional Details"></textarea></span>
                     </div>
                 </section>
             <h2>Skills and More</h2>
@@ -57,16 +58,16 @@
                             <option value="20">d20</option>
                             <option value="100">d100</option>
                         </select>
-                        <div class="rollDiv"><input type="button" id="stunts-RollHere" value="Roll Stunts Here" class="rollStat"></div>
+                        <div class="rollDiv"><input type="button" id="stunts-RollHere" value="Roll Stunts Here" class="rollStat" aria-controls="stunts-result"></div>
                         <p role="status">Stunts Roll Result: <span id="stunts-result">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll Stunts in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="stunts-code">
-                                No stunts die set.
+                                Skill currently does not have a valid value set.
                             </code>
-                            <input type="button" id="stunts-RollCode" value="Copy Stunts Roll20 Text">
+                            <input type="button" id="stunts-RollCode" value="Copy Roll20 Text" aria-label="Copy Roll20 Text for Stunts">
                         </div>
-                        <div><input type="button" id="stunts-Roll20" value="Roll Stunts in Roll20 Chat"></div>
+                        <div><input type="button" id="stunts-Roll20" value="Roll in Roll20 Chat" aria-label="Roll Stunts in Roll20 Chat"></div>
                     </section>
 
                     <section id="brawlSection" class="skillSection">
@@ -86,7 +87,7 @@
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="brawl-code">
-                                No Brawl die set.
+                                Skill currently does not have a valid value set.
                             </code>
                             <input type="button" id="brawl-RollCode" value="Copy Brawl Roll20 Text">
                         </div>
@@ -109,7 +110,7 @@
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="tough-code">
-                                No Tough die set.
+                                Skill currently does not have a valid value set.
                             </code>
                             <input type="button" id="tough-RollCode" value="Copy Tough Roll20 Text">
                         </div>
@@ -132,7 +133,7 @@
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="tech-code">
-                                No Tech die set.
+                                Skill currently does not have a valid value set.
                             </code>
                             <input type="button" id="tech-RollCode" value="Copy Tech Roll20 Text">
                         </div>
@@ -155,7 +156,7 @@
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="weapons-code">
-                                No Weapons die set.
+                                Skill currently does not have a valid value set.
                             </code>
                             <input type="button" id="weapons-RollCode" value="Copy Weapons Roll20 Text">
                         </div>
@@ -178,7 +179,7 @@
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="drive-code">
-                                No Drive die set.
+                                Skill currently does not have a valid value set.
                             </code>
                             <input type="button" id="drive-RollCode" value="Copy Drive Roll20 Text">
                         </div>
@@ -201,7 +202,7 @@
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="sneak-code">
-                                No Sneak die set.
+                                Skill currently does not have a valid value set.
                             </code>
                             <input type="button" id="sneak-RollCode" value="Copy Sneak Roll20 Text">
                         </div>
@@ -224,7 +225,7 @@
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="wits-code">
-                                No Wits die set.
+                                Skill currently does not have a valid value set.
                             </code>
                             <input type="button" id="wits-RollCode" value="Copy Wits Roll20 Text">
                         </div>
@@ -247,7 +248,7 @@
                         <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
                         <div>
                             <code id="hot-code">
-                                No Hot die set.
+                                Skill currently does not have a valid value set.
                             </code>
                             <input type="button" id="hot-RollCode" value="Copy Hot Roll20 Text">
                         </div>
@@ -769,10 +770,10 @@
         <footer>
             <p>The Never Stop Blowing Up system was:</p><p>Inspired by the Kids on Bikes system.</p><p>Written by Brennan Lee Mulligan & Carlos Luna. Design & Layout by Ruby Lavin.<br>With special thanks to The Intrepid Heroes & Hunters Entertainment.</p>
         </footer>
-        <script src="scripts/background.js"></script>
         <script src="scripts/tabs.js"></script>
         <script src="scripts/nsbu.js"></script>
+        <!-- <script src="scripts/background.js"></script> -->
         <!-- <script src="scripts/lightSwitch.js"></script> -->
-        <!-- <script src="scripts/events.js"></script> -->
+        <!-- <script src="scripts/characterCSV.js"></script> -->
     </body>
 </html>
