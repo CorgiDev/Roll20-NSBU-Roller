@@ -69,18 +69,6 @@ function PasteFromClipboard(msgDiv) {
     }
 };
 
-// ROLL20 CHAT FUNCTIONS
-function GetRoll20TabID(){
-    let currentTabID=0;
-    chrome.tabs.query({url: ROLL20_ORIGIN}, (tabs) => {currentTabID = tabs[0].value;});
-    return currentTabID;
-};
-
-function Roll20TabFocus (tabID) {
-    var updateProperties = {'active': true};
-    chrome.tabs.update(tabID, updateProperties, (tab) => { });
-};
-
 function GetSkillMsg(skillMsgDiv){
     let skillMsg = document.getElementById(skillMsgDiv).innerText;
     return skillMsg;
@@ -91,14 +79,28 @@ function GetSkillValue(skillValueDiv){
     return skillValue;
 }
 
+// ROLL20 CHAT FUNCTIONS
+async function GetRoll20TabID(){
+    roll20TabID=0;
+    // chrome.tabs.query({url: ROLL20_ORIGIN}, (tabs) => {roll20TabID = tabs[0].id;});
+    let [tabs] = await chrome.tabs.query({url: ROLL20_ORIGIN});
+    roll20TabID = tabs[0].id;
+    return roll20TabID;
+};
+
+function Roll20TabFocus (tabID) {
+    var updateProperties = {'active': true};
+    chrome.tabs.update(tabID, updateProperties, (tab) => { });
+};
+
 // Sends provided text to the Roll20 chat window and sends the message.
 function Roll20Send(skillName, skillMsgDiv, skillValueDiv) {
     let skillValue = GetSkillValue(skillValueDiv);
     CopyToClipboard(skillMsgDiv);
+    let currentId = GetRoll20TabID();
     if (skillValue == 0) {
         alert(skillName + " currently does not have the dice value set. Please set the dice value and try again.");
     } else if (skillValue > 0) {
-        let currentId=GetRoll20TabID();
         Roll20TabFocus(currentId);
         chrome.scripting.executeScript({
             target: {tabId: currentId},
@@ -186,6 +188,7 @@ EVENT LISTENERS
     stuntsRollHere.addEventListener("click", () => RollSkillHere("stunts-die", "stunts-result"));
     stuntsRollCode.addEventListener("click", () => CopyToClipboard("stunts-code"));
     stuntsRoll20Btn.addEventListener("click", () => Roll20Send("Stunts","stunts-code","stunts-die"));
+    
     //Roll20ChatSend (skillName, skillMsgDiv, skillValueDiv)
 /* Skills - Brawl */
     brawlDie.addEventListener("change", () => UpdateCopyText("Brawl", "brawl-die", "brawl-code"));
