@@ -21,18 +21,7 @@
           "https://*.roll20.net/*"
         ],
         "js": [
-          "scripts/nsbu.js",
-          "scripts/lightSwitch.js",
-          "scripts/tabs.js",
-          "scripts/characterCSV.js"
-        ],
-        "css": [
-          "styles/normalize.css",
-          "styles/main.css",
-          "styles/sidePanel.css",
-          "styles/light.css",
-          "styles/dark.css",
-          "styles/tablist.css"
+          "scripts/nsbu.js"
         ]
       }
     ],
