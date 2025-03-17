@@ -9,6 +9,22 @@ This is just a browser extension to make my Never Stop Blowing Up (NSBU) rolls m
 
 Additionally, the NSBU system is based on [Kids on Bikes system](https://www.huntersentertainment.com/kidsonbikesrpg) developed by Hunters Entertainment.
 
+## How to Use
+
+### Web Interface
+
+1. Simply open the [web interface](/web%20interface/)
+2. Open the `index.html`file and done.
+
+### Browser Extension
+
+#### Chrome
+
+This is instructions for using this as an unpacked 
+1. Once thi
+
+#### Firefox
+
 ## Stat Types
 
 The following stats are the ones tht would potentially need to roll for:
