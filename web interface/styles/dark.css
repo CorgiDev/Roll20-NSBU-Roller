@@ -1,5 +1,5 @@
 /* General Styling */
-* {
+html {
     background: black;
     color: #00ff26
 }
@@ -17,6 +17,18 @@ input:hover, input:focus {
     font-weight: bold;
 }
 
+[type="button"]:hover {
+    border: 3px white solid;
+    background: black;
+    color: white;
+    font-weight: bold;
+}
+
+[type="button"] {
+    background: #00ff26;
+    color: black;
+}
+
 /* input[type="text"],input[type="number"] {
     background: #00ff26;
     color: black;
@@ -30,7 +42,9 @@ code {
     border: 4px solid #00ff26;
 }
 
-/* Skills Styles */
+/**************
+Skills Styles 
+**************/
   
 #skillRollers section {
     border: double #00ff26 4px;
@@ -40,12 +54,13 @@ table, td, th {
     border: 1px solid #00ff26;
 }
 
-[type="button"] {
-    background: #00ff26;
-    color: black;
+/*******************
+Tabpanel Formatting
+*******************/
+[role="tab"] {
+    color: white;
 }
 
-/* Tabpanel Formatting */
 [role="tabpanel"] {
     border: 2px solid #00ff26;
     background: #00ff26;
@@ -75,11 +90,21 @@ table, td, th {
   background: #00ff26;
 }
 
-/* Ability Table */
-  
-/* Footer Styles */
+/**************
+Ability Table
+**************/
 
-/* Tablist darkmode */
+/******************
+Group Suites
+******************/
+  
+/**************
+Footer Styles
+**************/
+
+/******************
+Tablist darkmode
+******************/
 [role="tab"][aria-selected="true"] {
     border-bottom-color: #00ff26;
     background: black;
