@@ -1,6 +1,6 @@
 // Variables that are not dependent on page or extension load status
 let currentURL ="";
-let currentTabID ="";
+let roll20TabID;
 const ROLL20_ORIGIN = 'https://app.roll20.net/editor/';
 
 // Rolls a die of provided number of sides
@@ -80,30 +80,51 @@ function GetSkillValue(skillValueDiv){
 }
 
 // ROLL20 CHAT FUNCTIONS
-async function GetRoll20TabID(){
-    roll20TabID=0;
-    // chrome.tabs.query({url: ROLL20_ORIGIN}, (tabs) => {roll20TabID = tabs[0].id;});
-    let [tabs] = await chrome.tabs.query({url: ROLL20_ORIGIN});
-    roll20TabID = tabs[0].id;
-    return roll20TabID;
-};
+// async function GetRoll20TabID(){
+//     // chrome.tabs.query({url: ROLL20_ORIGIN}, (tabs) => {roll20TabID = tabs[0].id;});
+//     let [tabs] = await chrome.tabs.query({url: ROLL20_ORIGIN});
+//     let i = 0;
+//     while (i<2000) {
+//         i++;   
+//     }
 
-function Roll20TabFocus (tabID) {
+//     if (tabs[0].id == undefined) {
+//         alert("Unable to find Roll20 tab. Please open Roll20 and try again.");
+//     } 
+//     else {
+//         roll20TabID = tabs[0].id;
+//         return roll20TabID
+//     }
+// };
+
+async function GetRoll20TabID(tabCallback){
+    await chrome.tabs.query(
+        { url: ROLL20_ORIGIN },
+        function (tabArray) { tabCallback(tabArray[0]); }
+    );
+}
+
+function Roll20TabFocus () {
     var updateProperties = {'active': true};
-    chrome.tabs.update(tabID, updateProperties, (tab) => { });
+    chrome.tabs.update(roll20TabID, updateProperties, (tab) => { });
 };
 
 // Sends provided text to the Roll20 chat window and sends the message.
-function Roll20Send(skillName, skillMsgDiv, skillValueDiv) {
+async function Roll20Send(skillName, skillMsgDiv, skillValueDiv) {
     let skillValue = GetSkillValue(skillValueDiv);
     CopyToClipboard(skillMsgDiv);
-    let currentId = GetRoll20TabID();
+    //let currentId = await GetRoll20TabID();
+    await GetRoll20TabID( function(tab){ roll20TabID = tab.id } );
+    alert (roll20TabID);
     if (skillValue == 0) {
         alert(skillName + " currently does not have the dice value set. Please set the dice value and try again.");
     } else if (skillValue > 0) {
-        Roll20TabFocus(currentId);
+        if (roll20TabID == undefined) {
+            alert("Unable to find Roll20 tab. Please open Roll20 and try again.");
+        }
+        Roll20TabFocus(roll20TabID);
         chrome.scripting.executeScript({
-            target: {tabId: currentId},
+            target: {tabId: roll20TabID},
             func: PasteFromClipboard("textarea")
         });
         // Possibly add line that submits the message in chat.
