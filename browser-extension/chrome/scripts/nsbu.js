@@ -17,7 +17,7 @@ function UpdateCopyText(skillName,skillValueDiv,skillCodeDiv) {
     if (skillValue ==0){
         skillDiv.innerText = "Skill currently does not have a valid value set.";
     } else {
-        let skillText="/me Rolled a " + skillName + " roll (1d"+skillValue + ") [[1d" + skillValue + "]]";
+        let skillText="/me rolled a " + skillName + " roll (1d"+skillValue + ") [[1d" + skillValue + "]]";
         skillDiv.innerText = skillText;
         skillMsgName = skillText;
     }
@@ -96,16 +96,39 @@ function GetSkillValue(skillValueDiv){
 //         return roll20TabID
 //     }
 // };
+//
+// async function GetRoll20TabID(tabCallback){
+//     await chrome.tabs.query(
+//         { url: ROLL20_ORIGIN },
+//         function (tabArray) { tabCallback(tabArray[0]); }
+//     );
+// }
 
-async function GetRoll20TabID(tabCallback){
-    await chrome.tabs.query(
-        { url: ROLL20_ORIGIN },
-        function (tabArray) { tabCallback(tabArray[0]); }
-    );
+function getTabID () {
+    let [tabs]=chrome.tabs.query({URL: ROLL20_ORIGIN});
+    let i = 5000;
+    while (i>0) {
+        if(tab[0].id == null) {
+            i--;
+        } else if (tab[0].id == roll20TabID) {
+            i=0;
+        }
+        if (tabs[0].id != roll20TabID) {
+            roll20TabID = tabs[0].id;
+            i=0;
+        }
+    }
+    if (roll20TabID == undefined) {
+        console.log("Unable to find Roll20 tab id at this time.");
+    }
+    else {
+        console.log("Roll20 Tab ID: " + roll20TabID);
+    }
 }
 
 function Roll20TabFocus () {
     var updateProperties = {'active': true};
+    console.log("Attempting to set focus to Roll20 tab with ID: " + roll20TabID);
     chrome.tabs.update(roll20TabID, updateProperties, (tab) => { });
 };
 
@@ -113,16 +136,14 @@ function Roll20TabFocus () {
 async function Roll20Send(skillName, skillMsgDiv, skillValueDiv) {
     let skillValue = GetSkillValue(skillValueDiv);
     CopyToClipboard(skillMsgDiv);
-    //let currentId = await GetRoll20TabID();
-    await GetRoll20TabID( function(tab){ roll20TabID = tab.id } );
-    alert (roll20TabID);
+    
     if (skillValue == 0) {
         alert(skillName + " currently does not have the dice value set. Please set the dice value and try again.");
     } else if (skillValue > 0) {
         if (roll20TabID == undefined) {
             alert("Unable to find Roll20 tab. Please open Roll20 and try again.");
         }
-        Roll20TabFocus(roll20TabID);
+        Roll20TabFocus();
         chrome.scripting.executeScript({
             target: {tabId: roll20TabID},
             func: PasteFromClipboard("textarea")
@@ -254,3 +275,13 @@ EVENT LISTENERS
     sneakRoll20Btn.addEventListener("click", () => Roll20ChatSend(sneakMsg));
     witsRoll20Btn.addEventListener("click", () => Roll20ChatSend(witsMsg));
     hotRoll20Btn.addEventListener("click", () => Roll20ChatSend(hotMsg)); */
+
+
+// Chrome Tab Listeners
+chrome.tabs.onActivated.addListener((tab) => {
+    getTabID();
+});
+
+chrome.tabs.onUpdated.addListener((tab) => {
+    getTabID();
+});

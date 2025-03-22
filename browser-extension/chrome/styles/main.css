@@ -47,6 +47,10 @@ input {
     line-height: 1.2em;
 }
 
+input:hover, input:focus {
+    font-weight: bold;
+}
+
 input[type="number"], input[type="text"] {
     min-height: 1.5em;
     font-size: 1em;

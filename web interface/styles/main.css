@@ -34,6 +34,10 @@ code {
     margin: 10px 10px 10px 2px;
 }
 
+input:hover, input:focus {
+    font-weight: bold;
+}
+
 input[type="button"] {
     min-width: 10px;
     min-height: 10px;
