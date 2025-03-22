@@ -1,4 +1,6 @@
-/* General Styling */
+/***************
+General Styling
+***************/
 
 html {
     width: 800px;
@@ -6,18 +8,18 @@ html {
 }
 
 main {
-    width: 97%;
+    padding: 10px;
+    margin: 10px;
+    width: 95%;
 }
 
-label {
-    font-weight:bold;
-}
-
+/* Lists */
 li {
     margin: 5px;
     padding: 5px;
 }
 
+/* Text */
 p {
     margin-bottom: 5px;
     display: block;
@@ -27,16 +29,31 @@ p span {
     padding: 5px;
 }
 
-label {
-    margin: 5px;
-}
-
 code {
     display: block;
     min-height: 10px;
     min-width: 50px;
     padding: 20px 20px 20px 20px;
     margin: 10px 10px 10px 2px;
+}
+/* Form elements */
+label {
+    margin: 5px;
+    font-weight:bold;
+    font-size: 1.1em;
+}
+
+input {
+    line-height: 1.2em;
+}
+
+input:hover, input:focus {
+    font-weight: bold;
+}
+
+input[type="number"], input[type="text"] {
+    min-height: 1.5em;
+    font-size: 1em;
 }
 
 input[type="button"] {
@@ -51,18 +68,22 @@ input[type="button"] {
 select, input[type="text"] {
     padding: 5px;
 }
+/***********
+Base Info
+***********/
+#baseInfo span {
+    display: block;
+    margin-bottom: 10px;
+}
 
+/*************
+Skills Tab
+*************/
 .rollDiv {
     margin-left: 0;
     padding-left: 0;
 }
 
-main {
-    padding: 10px;
-    margin: 10px;
-}
-
-/* Skills Styles */
 #skillRollers {
     display: flex;
     flex-wrap:wrap;
@@ -74,8 +95,7 @@ main {
     margin: 0px 10px 10px 10px;
     padding: 0px 10px 5px 10px;
     border-radius: 10px;
-    width: 25%;
-    width: 80%;
+    width: 40%;
 }
 
 .rollStat {
@@ -86,12 +106,16 @@ main {
     padding-bottom: 10px;
 }
 
-/* Injuries */
+/*************
+Injuries Tab
+*************/
 #injuries-List label {
     min-width:200px;
 }
 
-/* Ability Table */
+/************
+Ability Tab
+************/
 .mini-text {
     display: block;
     font-size: smaller;
@@ -103,7 +127,9 @@ table, td, th {
     padding: 5px;
 }
   
-/* Footer Styles */
+/**************
+Footer Styles
+**************/
 footer p {
     text-align: center;
     padding-bottom: 10px;

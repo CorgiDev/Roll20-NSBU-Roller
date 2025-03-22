@@ -3,9 +3,17 @@
     "description": "An extension to help with tracking stats during a Never Stop Blowing Up (NSBU) game and send messages / rolls in Roll20.",
     "version": "1.0",
     "manifest_version": 3,
+    "background": {
+      "service_worker": "scripts/background.js",
+      "type": "module"
+    },
     "action": {
-      "default_popup": "nsbu.html",
-      "default_icon": "nsbu_extensions.png"
+      "default_title": "Click to open panel",
+      "default_icon": "nsbu_extensions.png",
+      "default_popup": "sidePanel.html"
+    },
+    "side_panel": {
+      "default_path": "sidePanel.html"
     },
     "content_scripts": [
       {
@@ -13,9 +21,7 @@
           "https://*.roll20.net/*"
         ],
         "js": [
-          "scripts/nsbu.js",
-          "scripts/lightSwitch.js",
-          "scripts/tabs.js"
+          "scripts/nsbu.js"
         ]
       }
     ],
@@ -24,11 +30,14 @@
       "clipboardWrite",
       "storage",
       "activeTab",
-      "scripting"
+      "scripting",
+      "sidePanel"
     ],
     "host_permissions": [
       "https://app.roll20.net/editor",
-      "https://app.roll20.net/*"
+      "https://app.roll20.net/*",
+      "http://*/*",
+      "https://*/*"
     ],
     "content_security_policy": {
         "extension_pages": "script-src 'self'; object-src 'self';",

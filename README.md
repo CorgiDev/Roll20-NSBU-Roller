@@ -7,6 +7,24 @@ This is just a browser extension to make my Never Stop Blowing Up (NSBU) rolls m
   - 10 episodes
   - Requires a subscription to watch.
 
+Additionally, the NSBU system is based on [Kids on Bikes system](https://www.huntersentertainment.com/kidsonbikesrpg) developed by Hunters Entertainment.
+
+## How to Use
+
+### Web Interface
+
+1. Simply open the [web interface](/web%20interface/)
+2. Open the `index.html`file and done.
+
+### Browser Extension
+
+#### Chrome
+
+This is instructions for using this as an unpacked 
+1. Once thi
+
+#### Firefox
+
 ## Stat Types
 
 The following stats are the ones tht would potentially need to roll for:
@@ -62,5 +80,7 @@ I want to have a selection of abilities I can check, or click to display in chat
 - https://www.freecodecamp.org/news/building-chrome-extension/
 - https://www.w3schools.com/css/css3_mediaqueries_ex.asp
 - https://www.w3schools.com/css/css3_flexbox_container.asp
+- https://javascript.info/
 - Resources for adding a dark mode:
   - https://stackoverflow.com/questions/19844545/replacing-css-file-on-the-fly-and-apply-the-new-style-to-the-page
+<!-- - Mod Used to Retore `chrome.tabs.executeScripts`: https://forum.vivaldi.net/topic/57191/restore-methods-for-chrome-tabs?_=1616328654406 -->
