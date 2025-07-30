@@ -111,6 +111,8 @@ I want to have a selection of abilities I can check, or click to display in chat
 
 ## Resources
 
+The following resources are for me to reference as I work on building out this extension, and are not relevant to the NSBU game itself.
+
 - https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world
 - https://www.freecodecamp.org/news/building-chrome-extension/
 - https://www.w3schools.com/css/css3_mediaqueries_ex.asp
