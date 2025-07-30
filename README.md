@@ -1,17 +1,19 @@
 # Roll20 Never Stop Blowing Up (NSBU) Roller
 
-This is just a browser extension to make my Never Stop Blowing Up (NSBU) rolls more easily. This is all based on the NSBU game system. You can learn more about it from the following pages:
+This is just a browser extension to make my Never Stop Blowing Up (NSBU) rolls more easily. This is all based on the NSBU game system. You can learn more about it from the following pages, or checking out the sections in this page under the [NSBU Game Details heading](#nsbu-game-details):
 
 - [‘Never Stop Blowing Up’ Game System | DropOut Store](https://store.dropout.tv/products/never-stop-blowing-up-game-system) (It is free!)
 - [Dimension 20: Never Stop Blowing Up | :DropOut](https://www.dropout.tv/dimension-20-never-stop-blowing-up)
   - 10 episodes
   - Requires a subscription to watch.
- 
-## Compatibility
+
+## Extension Details
+
+### Compatibility
 
 The extension works in Edge, Chrome, and other Chromium based browsers that support loading in your own extensions.
  
-## How to load the extension
+### Load the Extension
 
 Currently, the extension isn't to a point where I could put it on the Chrome or Edge stores as a free download. So you have to manually load it in. The following steps were written from within Chrome, but should be fairly similar in Edge.
 
@@ -30,11 +32,11 @@ Currently, the extension isn't to a point where I could put it on the Chrome or 
 9. If the extension loaded in, you will see "NSBU Tracker" listed in your "All extensions" list.
    - <img width="804" height="439" alt="Chrome All extensions list with the NSBU Tracker extension listed." src="https://github.com/user-attachments/assets/ce21938f-0fad-4e0d-9b6c-8f69ab3f4869" />
 
-## Add the extension to your browser bar
+#### Add Extension to Your Browser Bar
 
 The extension will not immediately show up in your browser's address bar area. There are 2 ways to get the extension to display in your browser bar, through the Extensions button in the browser bar or from the Manage Extensions window.
 
-### From browser bar button
+##### Browser Bar Extensions Button
 
 1. Open the "Extensions" menu from the browser bar.
 2. Find the NSBU Tracker extension in the list of extensions.
@@ -42,7 +44,7 @@ The extension will not immediately show up in your browser's address bar area. T
 
 <img width="374" height="386" alt="Extension menu opened from browser bar with the pin icon activated beside the NSBU Tracker extension." src="https://github.com/user-attachments/assets/66b6432c-aeaf-4508-87da-2dc1bd0d1b97" />
 
-### Manage extension window
+##### Manage Extensions Window
 
 1. Open the main menu for your browser and select "Extensions". Then select "Manage Extensions" from the new menu section that displays.
    - <img width="539" height="90" alt="Extensions menu expanded to show Manage Extensions option highlighted." src="https://github.com/user-attachments/assets/a1fae2e0-483c-4a51-a31d-9741dd797926" />
@@ -52,11 +54,13 @@ The extension will not immediately show up in your browser's address bar area. T
 3. Toggle the "Pin to toolbar" option on and the extension will show up in your browser bar.
    - <img width="707" height="62" alt="Pin to toolbar option toggled on." src="https://github.com/user-attachments/assets/ef7eae9b-a61d-44c2-a119-e5e580a91222" />
 
-## Web Interface
+### Web Interface
 
 There is also a "Web Interface" folder within this repository. If you just open the NSBU.html file within that folder, it will also essentially act as the extension.
 
-## Stat Types
+## NSBU Game Details
+
+### Stat Types
 
 The following stats are the ones tht would potentially need to roll for:
 
@@ -70,7 +74,7 @@ The following stats are the ones tht would potentially need to roll for:
 - Wits
 - Hot
 
-## Roll Values
+### Roll Values
 
 The following are the die values you may need to roll:
 
@@ -82,11 +86,11 @@ The following are the die values you may need to roll:
 - 1d20
   - 1d00 - Only happens when you blow up a d20
  
-## Turbo Tokens
+### Turbo Tokens
 
 Turbo tokens are earned when you blow up roll twice, or fail a roll.
 
-## Injuries
+### Injuries
 
 Injuries have to be tracked. Injury types include:
 
@@ -94,11 +98,11 @@ Injuries have to be tracked. Injury types include:
 - Severe
 - Adrenlized
 
-## Abilities
+### Abilities
 
 I want to have a selection of abilities I can check, or click to display in chat.
 
-## Examples of the commands
+### Examples of the commands
 
 ```
   /me Rolls a Drive roll
