@@ -18,8 +18,10 @@
             <h2>Basic Character Information</h2>
             <ul>
                 <li><label for="heroName">Action Hero Name:</label><input type="text" id="heroName"></li>
-            <li><label for="heroCatchphrase">Catchphrase:</label><input type="text" id="heroCatchphrase"></li>
-            <li><label for="turboTokens">Turbo Tokens</label><input type="number" id="turboTokens" value="2" min="0" max="9999" step="1" aria-label="Turbo Tokens" title="Turbo Tokens"></li>
+                <li><label for="heroCatchphrase">Catchphrase:</label><input type="text" id="heroCatchphrase"></li>
+                <li><label for="turboTokens">Turbo Tokens:</label><input type="number" id="turboTokens" value="2" min="0" max="9999" step="1" aria-label="Turbo Tokens" title="Turbo Tokens"></li>
+                <li><label for="item-list">Items:</label><br><textarea id="item-list" name="item-list" rows="4" cols="50"></textarea></li>
+                <li><label>Other Notes:</label><br><textarea id="other-notes" name="other-notes" rows="4" cols="50"></textarea></li>
             </ul>
 
             <!-- Tabs for skills, abilities, and more -->
@@ -69,7 +71,7 @@
                         </div>
                     </section>
                     <section id="brawlSection" class="skillSection">
-                        <h3 id="brawlHeading">Brawl</h3>
+                        <h3 id="brawlHeading">Brawl / Fight</h3>
                         <select aria-label="Brawl Die Value" name="brawlDie" id="brawlDie" onchange="UpdateCopyText(brawlHeading.textContent, brawlDie.value, brawlCode.id)">
                             <option value="0">--Set Brawl Die Value--</option>
                             <option value="4">d4</option>
@@ -741,19 +743,23 @@
             <div id="tabpanel-5" role="tabpanel" aria-labelledby="tab-5" class="is-hidden">
                 <div>
                     <h2>Settings</h2>
-                    <p>This buttons on this page currently do not work. I will be implementing them in a later version.</p>
+                    <p>These buttons on this page currently do not work. I will be implementing them in a later version.</p>
+
+                    <h3>Save Character Info</h3>
+                    <p>This button is used to save your current character information from this web app.</p>
+                    <input type="button" id="saveButton" disabled type="button" aria-label="Export Character Information" value="Save Character Information" onclick="saveCharacter();">
 
                     <h3>Export Character Info</h3>
                     <p>This button is used to export a character's information from this web app.</p>
-                    <input type="button" id="exportToggle" disabled type="button" aria-label="Export Character Information" value="Export Character Information">
+                    <input type="button" id="exportButton" disabled type="button" aria-label="Export Character Information" value="Export Character Information"onclick="exportCharacter();">
 
                     <h3>Import Character Info</h3>
                     <p>This button is used to import a character's information into this web app.</p>
-                    <input type="button" id="importToggle" disabled type="button" aria-label="Import Character Information" value="Import Character Information">
+                    <input type="button" id="importButton" disabled type="button" aria-label="Import Character Information" value="Import Character Information" onclick="importCharacter();">
 
                     <h3>Dark Mode Toggle</h3>
                     <p>This button is intended to be used to toggle between light and dark mode.</p>
-                    <input type="button" id="darkModeToggle" disabled type="button" data-theme-toggle aria-label="Change to light Mode" value="Change to light Mode">
+                    <input type="button" id="darkModeToggle" disabled type="button" data-theme-toggle aria-label="Change to light Mode" value="Change to light Mode" onclick="toggleTheme();">
                 </div>
             </div>
         </main>
@@ -762,5 +768,6 @@
         </footer>
         <script src="scripts/tabs.js"></script>
         <script src="scripts/skills.js"></script>
+        <script src="scripts/characterActions.js"></script>
     </body>
 </html>
