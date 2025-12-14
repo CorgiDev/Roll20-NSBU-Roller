@@ -10,17 +10,22 @@
         <!-- <link rel="stylesheet" type="text/css" href="styles/light.css"> -->
         <link rel="stylesheet" type="text/css" href="styles/dark.css">
         <!-- <link rel="stylesheet" type="text/css" href="styles/responsive.css"> -->
+        <script src="scripts/troubleshootButtons.js"></script>
     </head>
-    <body>
+    <body onload="resetCopyText()">
         <main>
             <h1>Never Stop Blowing Up (NSBU) Tracker</h1>
 
             <h2>Basic Character Information</h2>
-            <ul>
-                <li><label for="heroName">Action Hero Name:</label><input type="text" id="heroName"></li>
-            <li><label for="heroCatchphrase">Catchphrase:</label><input type="text" id="heroCatchphrase"></li>
-            <li><label for="turboTokens">Turbo Tokens</label><input type="number" id="turboTokens" value="2" min="0" max="9999" step="1" aria-label="Turbo Tokens" title="Turbo Tokens"></li>
-            </ul>
+            <div>
+                <ul>
+                    <li><label for="heroName">Action Hero Name:</label><input type="text" id="heroName"></li>
+                    <li><label for="heroCatchphrase">Catchphrase:</label><input type="text" id="heroCatchphrase"></li>
+                    <li><label for="turboTokens">Turbo Tokens:</label><input type="number" id="turboTokens" value="2" min="0" max="9999" step="1" aria-label="Turbo Tokens" title="Turbo Tokens"></li>
+                    <li><label for="item-list">Items:</label><br><textarea id="item-list" name="item-list" rows="4" cols="50"></textarea></li>
+                    <li><label for="other-notes">Other Notes:</label><br><textarea id="other-notes" name="other-notes" rows="4" cols="50"></textarea></li>
+                </ul>
+            </div>
 
             <!-- Tabs for skills, abilities, and more -->
             <div role="tablist" aria-labelledby="tablist-1" class="manual">
@@ -60,7 +65,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="stuntsButton1" value="Roll Stunts Here" class="rollStat" onclick="RollSkill(stuntsDie.value, stuntsResult.id)"></div>
                         <p role="status">Stunts Roll Result: <span id="stuntsResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="stuntsCode">
                                 No stunts die set.
@@ -69,7 +74,7 @@
                         </div>
                     </section>
                     <section id="brawlSection" class="skillSection">
-                        <h3 id="brawlHeading">Brawl</h3>
+                        <h3 id="brawlHeading">Brawl / Fight</h3>
                         <select aria-label="Brawl Die Value" name="brawlDie" id="brawlDie" onchange="UpdateCopyText(brawlHeading.textContent, brawlDie.value, brawlCode.id)">
                             <option value="0">--Set Brawl Die Value--</option>
                             <option value="4">d4</option>
@@ -82,7 +87,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="brawlButton1" value="Roll Brawl Here" class="rollStat" onclick="RollSkill(brawlDie.value, brawlResult.id)"></div>
                         <p role="status">Brawl Roll Result: <span id="brawlResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="brawlCode">
                                 No Brawl die set.
@@ -104,7 +109,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="toughButton1" value="Roll Tough Here" class="rollStat" onclick="RollSkill(toughDie.value, toughResult.id)"></div>
                         <p role="status">Tough Roll Result: <span id="toughResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="toughCode">
                                 No Tough die set.
@@ -126,7 +131,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="techButton1" value="Roll Tech Here" class="rollStat" onclick="RollSkill(techDie.value, techResult.id)"></div>
                         <p role="status">Tech Roll Result: <span id="techResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="techCode">
                                 No Tech die set.
@@ -148,7 +153,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="weaponsButton1" value="Roll Weapons Here" class="rollStat" onclick="RollSkill(weaponsDie.value, weaponsResult.id)"></div>
                         <p role="status">Weapons Roll Result: <span id="weaponsResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="weaponsCode">
                                 No Weapons die set.
@@ -170,7 +175,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="driveButton1" value="Roll Drive Here" class="rollStat" onclick="RollSkill(driveDie.value, driveResult.id)"></div>
                         <p role="status">Drive Roll Result: <span id="driveResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="driveCode">
                                 No Drive die set.
@@ -192,7 +197,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="sneakButton1" value="Roll Sneak Here" class="rollStat" onclick="RollSkill(sneakDie.value, sneakResult.id)"></div>
                         <p role="status">Sneak Roll Result: <span id="sneakResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="sneakCode">
                                 No Sneak die set.
@@ -214,7 +219,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="witsButton1" value="Roll Wits Here" class="rollStat" onclick="RollSkill(witsDie.value, witsResult.id)"></div>
                         <p role="status">Wits Roll Result: <span id="witsResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="witsCode">
                                 No Wits die set.
@@ -236,7 +241,7 @@
                         </select>
                         <div class="rollDiv"><input type="button" id="hotButton1" value="Roll Hot Here" class="rollStat" onclick="RollSkill(hotDie.value, hotResult.id)"></div>
                         <p role="status">Hot Roll Result: <span id="hotResult">Not yet rolled</span></p>
-                        <p>If you would like to roll in Roll 20 instead, copy the following text block:</p>
+                        <p>If you would like to roll in Roll20 instead, copy the following text block:</p>
                         <div>
                             <code id="hotCode">
                                 No Hot die set.
@@ -741,19 +746,23 @@
             <div id="tabpanel-5" role="tabpanel" aria-labelledby="tab-5" class="is-hidden">
                 <div>
                     <h2>Settings</h2>
-                    <p>This buttons on this page currently do not work. I will be implementing them in a later version.</p>
+                    <p>These buttons on this page currently do not work. I will be implementing them in a later version.</p>
 
-                    <h3>Export Character Info</h3>
-                    <p>This button is used to export a character's information from this web app.</p>
-                    <input type="button" id="exportToggle" disabled type="button" aria-label="Export Character Information" value="Export Character Information">
+                    <h3>Save Character Info</h3>
+                    <p>This button is used to export a character's information from this web app into a JSON file.</p>
+                    <input type="button" id="exportButton" type="button" aria-label="Export Character Information" value="Export Character Information" onclick="saveCharacter();">
 
                     <h3>Import Character Info</h3>
-                    <p>This button is used to import a character's information into this web app.</p>
-                    <input type="button" id="importToggle" disabled type="button" aria-label="Import Character Information" value="Import Character Information">
+                    <p>This button is used to import a character's information into this web app using a JSON file created previously.</p>
+                    <input type="button" id="importButton" type="button" aria-label="Import Character Information" value="Import Character Information" onclick="importCharacter();">
 
                     <h3>Dark Mode Toggle</h3>
                     <p>This button is intended to be used to toggle between light and dark mode.</p>
-                    <input type="button" id="darkModeToggle" disabled type="button" data-theme-toggle aria-label="Change to light Mode" value="Change to light Mode">
+                    <input type="button" id="darkModeToggle" disabled type="button" data-theme-toggle aria-label="Change to light Mode" value="Change to light Mode" onclick="toggleTheme();">
+
+                    <h3>Troubleshooting</h3>
+                    <p>Button in this section are intended to be used to fix known issues that may occur.</p>
+                    <input type="button" id="resetCopyText" type="button" aria-label="Reset Copy Text" value="Reset Copy Text" onclick="resetCopyText();">
                 </div>
             </div>
         </main>
@@ -762,5 +771,7 @@
         </footer>
         <script src="scripts/tabs.js"></script>
         <script src="scripts/skills.js"></script>
+        <script src="scripts/characterActions.js"></script>
+        <script src="scripts/cookies.js"></script>
     </body>
 </html>
