@@ -17,6 +17,7 @@ A desktop application for tracking Never Stop Blowing Up (NSBU) characters.
 ## Running the App
 
 To run the application in development mode:
+
 ```
 npm start
 ```
@@ -30,6 +31,9 @@ To build the application for your platform:
 - Linux: `npm run build:linux`
 
 The built application will be in the `dist` folder.
+
+> [!NOTE]
+> You can copy the `<os>-unpacked` folder onto your pc and make a shortcut to it on your desktop to more easily launch the app.
 
 ## Features
 
