@@ -3,7 +3,7 @@ function UpdateCopyText(skillName,skillValue, skillCodeDiv) {
     if (skillValue ==0){
         skilldiv.textContent = "Skill currently does not have a valid value set.";
     } else {
-        let skillText="/me Rolled a " + skillName + " roll (1d"+skillValue + ") [[1d" + skillValue + "]]";
+        let skillText="/me rolled a " + skillName + " roll (1d"+skillValue + ") [[1d" + skillValue + "]]";
         skilldiv.textContent = skillText;
     }
 }
